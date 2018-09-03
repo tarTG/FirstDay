@@ -1,10 +1,6 @@
-![Logo](https://github.com/funabab/godot-git-control/raw/master/addons/godot-git-control.funabab/logo.png)
 
-# Godot Git Control #
+# First Day (experimental Project)
 
-This is a simple Git Companion plugin for @godotengine
+With this project i play arround with [the Godot Game Engine](https://godotengine.org/). The main focus is about 2D Lightning, Shadereffects and, if i find the time, procedural generation.
 
-![ScreenShot](https://github.com/funabab/godot-git-control/raw/master/addons/godot-git-control.funabab/screenshot.png)
-
-## minnor rewrite
-## added godotengine 3 support and some other features
+Maybe someday it will be a playable game, but right now, its far away from usable.
