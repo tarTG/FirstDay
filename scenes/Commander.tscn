@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scipts/Commander.gd" type="Script" id=1]
+
+[node name="Commander" type="Node"]
+
+script = ExtResource( 1 )
+boldness = 1
+thoroughness = 1
+improvisation = 1
+organisation = 1
+sociality = 1
+responsiveness = 1
+attention = 1
+
+
