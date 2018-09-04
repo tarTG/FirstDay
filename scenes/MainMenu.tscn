@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scipts/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://art/starfield.png" type="Texture" id=2]
+[ext_resource path="res://art/BasicTheme.tres" type="Theme" id=2]
+[ext_resource path="res://art/starfield.png" type="Texture" id=3]
 
-[node name="MainMenu" type="CanvasLayer"]
+[node name="MainMenu" type="CanvasLayer" index="0"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -48,7 +49,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 popup_exclusive = false
-window_title = "Spielstand Laden"
+window_title = "Datei öffnen"
 resizable = true
 dialog_hide_on_ok = true
 mode_overrides_title = true
@@ -67,10 +68,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 261.0
-margin_top = 143.0
-margin_right = 345.0
-margin_bottom = 235.0
+margin_left = 199.0
+margin_top = 124.0
+margin_right = 407.0
+margin_bottom = 253.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -87,8 +88,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 84.0
-margin_bottom = 20.0
+margin_right = 208.0
+margin_bottom = 46.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -96,6 +97,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -103,7 +105,7 @@ group = null
 text = "New Game"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect", "Size Flags", "custom_fonts" ]
+_sections_unfolded = [ "Rect", "Size Flags", "Theme", "custom_fonts" ]
 
 [node name="LoadButton" type="Button" parent="CenterContainer/Vertical" index="1"]
 
@@ -111,16 +113,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 24.0
-margin_right = 84.0
-margin_bottom = 44.0
+margin_top = 50.0
+margin_right = 208.0
+margin_bottom = 96.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -128,7 +131,7 @@ group = null
 text = "Load Game"
 flat = false
 align = 1
-_sections_unfolded = [ "Focus", "Hint", "Rect", "Size Flags" ]
+_sections_unfolded = [ "Focus", "Hint", "Rect", "Size Flags", "Theme" ]
 
 [node name="OptionsButton" type="Button" parent="CenterContainer/Vertical" index="2"]
 
@@ -136,16 +139,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 48.0
-margin_right = 84.0
-margin_bottom = 68.0
+margin_top = 100.0
+margin_right = 208.0
+margin_bottom = 146.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -153,7 +157,7 @@ group = null
 text = "Options"
 flat = false
 align = 1
-_sections_unfolded = [ "Grow Direction", "Rect" ]
+_sections_unfolded = [ "Grow Direction", "Rect", "Size Flags", "Theme" ]
 
 [node name="ExitButton" type="Button" parent="CenterContainer/Vertical" index="3"]
 
@@ -161,16 +165,17 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 72.0
-margin_right = 84.0
-margin_bottom = 92.0
+margin_top = 150.0
+margin_right = 208.0
+margin_bottom = 196.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 1
+size_flags_vertical = 3
+theme = ExtResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -195,7 +200,9 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+theme = ExtResource( 2 )
 use_top_left = false
+_sections_unfolded = [ "Theme" ]
 
 [node name="RichTextLabel" type="Label" parent="TitelContainer" index="0"]
 
@@ -203,9 +210,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 13.0
-margin_right = 56.0
-margin_bottom = 27.0
+margin_right = 137.0
+margin_bottom = 40.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -244,7 +250,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 expand = true
 stretch_mode = 0
 
