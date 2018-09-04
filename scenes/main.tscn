@@ -96,7 +96,7 @@ adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 _sections_unfolded = [ "Adjustments", "Auto Exposure", "Background", "Glow" ]
 
-[node name="main" type="Node" index="0"]
+[node name="main" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -113,6 +113,7 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Sprite2" type="Sprite" parent="." index="3"]
 
+editor/display_folded = true
 position = Vector2( 392.462, 331.871 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
@@ -146,6 +147,7 @@ _sections_unfolded = [ "Range", "Shadow" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2" index="1"]
 
+editor/display_folded = true
 position = Vector2( 3.35017, 0 )
 scale = Vector2( 1.10469, 1 )
 input_pickable = false

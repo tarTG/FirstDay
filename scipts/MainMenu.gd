@@ -11,3 +11,22 @@ func _ready():
 
 func _on_ExitButton_button_down():
 	get_tree().quit() # exit game
+
+
+func _on_NewGameButton_button_down():
+	Globals.goto_scene("res://scenes/CharacterGeneration.tscn")
+	pass # replace with function body
+
+
+func _on_LoadButton_button_down():
+	$CenterContainer/LoadGameDialog.show()
+	pass # replace with function body
+
+
+func _on_OptionsButton_button_down():
+	Globals.goto_scene("res://scenes/GameOptions.tscn")
+	pass # replace with function body
+
+
+func _on_LoadGameDialog_confirmed():
+	pass # replace with function body
