@@ -53,6 +53,7 @@ func _on_StartButton_button_down():
 	com.sociality = $MarginContainer/ComanderStats/Sozi.current_val
 	com.responsiveness = $MarginContainer/ComanderStats/Respon.current_val
 	com.attention = $MarginContainer/ComanderStats/Attention.current_val
+	com.commander_name = $MarginContainer/ComanderStats/NameContainer/TextEdit.text
 	Globals.goto_scene("res://scenes/main.tscn")
 #export var improvisation = 1 	# influences regeneration
 #export var organisation = 1 	# organisation influences storage size

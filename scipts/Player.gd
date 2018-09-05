@@ -31,5 +31,5 @@ func handle_input(delta):
 		ship.rotate_right()
 	if Input.is_action_pressed("player_thrust"):
 		ship.thrust()
-	#else:
+
 

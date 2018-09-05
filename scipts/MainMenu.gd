@@ -15,17 +15,15 @@ func _on_ExitButton_button_down():
 
 func _on_NewGameButton_button_down():
 	Globals.goto_scene("res://scenes/CharacterGeneration.tscn")
-	pass # replace with function body
 
 
 func _on_LoadButton_button_down():
 	$CenterContainer/LoadGameDialog.show()
-	pass # replace with function body
 
 
 func _on_OptionsButton_button_down():
 	Globals.goto_scene("res://scenes/GameOptions.tscn")
-	pass # replace with function body
+
 
 
 func _on_LoadGameDialog_confirmed():

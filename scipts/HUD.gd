@@ -29,3 +29,10 @@ func _input(event):
 	if event.is_action_pressed("pause"):
 		Globals.pause = not Globals.pause
 		get_tree().paused = Globals.pause
+	if event.is_action_pressed("menu"):
+		var menu_inst = load("res://scenes/IngameMenu.tscn").instance()
+		menu_inst.set_name("menu")
+		add_child(menu_inst)
+		Globals.pause = not Globals.pause
+		get_tree().paused = Globals.pause
+		
