@@ -5,6 +5,7 @@
 [node name="Commander" type="Node"]
 
 script = ExtResource( 1 )
+commander_name = ""
 boldness = 1
 thoroughness = 1
 improvisation = 1

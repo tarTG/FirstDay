@@ -17,7 +17,7 @@ polygon = PoolVector2Array( -11.9472, 30.227, 12.6481, 29.7, 11.8391, -7.16045, 
 custom_solver_bias = 0.0
 radius = 42.1926
 
-[node name="ship_template" type="RigidBody2D" index="0"]
+[node name="ship_template" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1

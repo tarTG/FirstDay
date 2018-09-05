@@ -1,6 +1,61 @@
-[gd_scene format=2]
+[gd_scene load_steps=13 format=2]
 
-[node name="CharacterGeneration" type="HBoxContainer" index="0"]
+[ext_resource path="res://art/BasicTheme.tres" type="Theme" id=1]
+[ext_resource path="res://scipts/CharacterGeneration.gd" type="Script" id=2]
+[ext_resource path="res://scenes/StatContainer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://art/TranscendsGames.otf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+
+size = 36
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="Theme" id=2]
+
+resource_local_to_scene = true
+default_font = SubResource( 1 )
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="Theme" id=3]
+
+resource_local_to_scene = true
+default_font = SubResource( 1 )
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="Theme" id=4]
+
+resource_local_to_scene = true
+default_font = SubResource( 1 )
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="Theme" id=5]
+
+resource_local_to_scene = true
+default_font = SubResource( 1 )
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="Theme" id=6]
+
+resource_local_to_scene = true
+default_font = SubResource( 1 )
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="Theme" id=7]
+
+resource_local_to_scene = true
+default_font = SubResource( 1 )
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="Theme" id=8]
+
+resource_local_to_scene = true
+default_font = SubResource( 1 )
+_sections_unfolded = [ "Resource" ]
+
+[node name="CharacterGeneration" type="HBoxContainer"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -12,10 +67,12 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource( 1 )
 alignment = 0
-_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags" ]
+script = ExtResource( 2 )
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Rect", "Size Flags", "Theme" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -25,35 +82,271 @@ margin_right = 510.0
 margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
-mouse_filter = 1
+mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-alignment = 0
-_sections_unfolded = [ "Size Flags", "Theme" ]
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+_sections_unfolded = [ "Size Flags", "custom_constants" ]
 
-[node name="Test" type="Label" parent="VBoxContainer" index="0"]
+[node name="ComanderStats" type="VBoxContainer" parent="MarginContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 510.0
-margin_bottom = 14.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 490.0
+margin_bottom = 580.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Anchor", "Size Flags", "Theme" ]
+
+[node name="NameContainer" type="HBoxContainer" parent="MarginContainer/ComanderStats" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 470.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="NameLabel" type="Label" parent="MarginContainer/ComanderStats/NameContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 233.0
+margin_bottom = 55.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Name"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="TextEdit" type="LineEdit" parent="MarginContainer/ComanderStats/NameContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 237.0
+margin_top = 4.0
+margin_right = 470.0
+margin_bottom = 51.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 3
+size_flags_vertical = 6
+max_length = 14
+focus_mode = 2
+context_menu_enabled = true
+placeholder_alpha = 0.6
+caret_blink = false
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Caret", "Size Flags" ]
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/ComanderStats" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 59.0
+margin_right = 470.0
+margin_bottom = 63.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+
+[node name="AttributesLabel" type="Label" parent="MarginContainer/ComanderStats" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 67.0
+margin_right = 470.0
+margin_bottom = 104.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
-size_flags_vertical = 1
-text = "Test1"
-autowrap = true
+size_flags_vertical = 4
+text = "Attributes"
+align = 1
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Anchor", "Margin", "Size Flags", "Theme" ]
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="." index="1"]
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/ComanderStats" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 108.0
+margin_right = 470.0
+margin_bottom = 145.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="PointLabel" type="Label" parent="MarginContainer/ComanderStats/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 233.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Points left"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="PointRemain" type="Label" parent="MarginContainer/ComanderStats/VBoxContainer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 237.0
+margin_right = 470.0
+margin_bottom = 37.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="Bold" parent="MarginContainer/ComanderStats" index="4" instance=ExtResource( 3 )]
+
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 149.0
+margin_right = 470.0
+margin_bottom = 204.0
+theme = SubResource( 2 )
+label_name = "Boldness"
+
+[node name="Through" parent="MarginContainer/ComanderStats" index="5" instance=ExtResource( 3 )]
+
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 208.0
+margin_right = 470.0
+margin_bottom = 263.0
+theme = SubResource( 3 )
+label_name = "Thoroughness"
+
+[node name="Impro" parent="MarginContainer/ComanderStats" index="6" instance=ExtResource( 3 )]
+
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 267.0
+margin_right = 470.0
+margin_bottom = 322.0
+theme = SubResource( 4 )
+label_name = "Improvisation"
+
+[node name="Orga" parent="MarginContainer/ComanderStats" index="7" instance=ExtResource( 3 )]
+
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 326.0
+margin_right = 470.0
+margin_bottom = 381.0
+theme = SubResource( 5 )
+label_name = "Organisation"
+
+[node name="Sozi" parent="MarginContainer/ComanderStats" index="8" instance=ExtResource( 3 )]
+
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 385.0
+margin_right = 470.0
+margin_bottom = 440.0
+theme = SubResource( 6 )
+label_name = "Soziality"
+
+[node name="Respon" parent="MarginContainer/ComanderStats" index="9" instance=ExtResource( 3 )]
+
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 444.0
+margin_right = 470.0
+margin_bottom = 499.0
+theme = SubResource( 7 )
+label_name = "Responsiveness"
+
+[node name="Attention" parent="MarginContainer/ComanderStats" index="10" instance=ExtResource( 3 )]
+
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 503.0
+margin_right = 470.0
+margin_bottom = 560.0
+theme = SubResource( 8 )
+label_name = "Attention"
+
+[node name="MarginContainer2" type="MarginContainer" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -64,6 +357,28 @@ margin_right = 1024.0
 margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+_sections_unfolded = [ "Size Flags", "custom_constants" ]
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer2" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 490.0
+margin_bottom = 580.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
 mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
@@ -71,24 +386,54 @@ size_flags_vertical = 3
 alignment = 0
 _sections_unfolded = [ "Size Flags", "Theme" ]
 
-[node name="Label" type="Label" parent="VBoxContainer2" index="0"]
+[node name="Label" type="Label" parent="MarginContainer2/VBoxContainer2" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 510.0
-margin_bottom = 600.0
+margin_right = 470.0
+margin_bottom = 560.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Test2"
+text = "Ship"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Size Flags" ]
+
+[node name="StartButton" type="Button" parent="MarginContainer2" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 213.0
+margin_top = 278.0
+margin_right = 297.0
+margin_bottom = 321.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Start"
+flat = false
+align = 1
+_sections_unfolded = [ "Size Flags" ]
+
+[connection signal="button_down" from="MarginContainer2/StartButton" to="." method="_on_StartButton_button_down"]
 
 

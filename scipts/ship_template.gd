@@ -44,7 +44,7 @@ func recalc_values():
 	ship_values.max_Crew = ship_values.max_Crew + commander.sociality * 2
 	ship_values.mass = ship_values.current_crew * 0.07
 	mass = ship_values.mass
-	ship_values.thrust = commander.boldness
+	ship_values.thrust = commander.boldness *0.1
 	ship_values.agillity = commander.responsiveness
 	ship_values.sensor_thrength = commander.attention
 	ship_values.shield_regen = commander.improvisation

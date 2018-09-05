@@ -4,7 +4,7 @@
 
 [sub_resource type="DynamicFont" id=1]
 
-size = 39
+size = 36
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 1 )
@@ -12,6 +12,7 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [resource]
 
+resource_local_to_scene = true
 default_font = SubResource( 1 )
 _sections_unfolded = [ "Resource" ]
 

@@ -1,5 +1,7 @@
 extends Node
 
+export var commander_name = ""
+
 # commander attributes
 export var boldness = 1 		# influences thurst
 export var thoroughness = 1 	# influences reload speed 

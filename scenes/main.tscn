@@ -1,21 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scipts/main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://art/black.png" type="Texture" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
-[ext_resource path="res://art/Unbenannt 1.png" type="Texture" id=6]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 26.1366, 24.6591 )
-
-[sub_resource type="CircleShape2D" id=2]
-
-custom_solver_bias = 0.0
-radius = 10.0
+[ext_resource path="res://art/black.png" type="Texture" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://art/Unbenannt 1.png" type="Texture" id=5]
 
 [sub_resource type="Environment" id=3]
 
@@ -96,26 +85,38 @@ adjustment_contrast = 1.0
 adjustment_saturation = 1.0
 _sections_unfolded = [ "Adjustments", "Auto Exposure", "Background", "Glow" ]
 
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 26.1366, 24.6591 )
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
 [node name="main" type="Node"]
 
 script = ExtResource( 1 )
 
-[node name="HUD" parent="." index="0" instance=ExtResource( 2 )]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
 
-[node name="Player" parent="." index="1" instance=ExtResource( 3 )]
+environment = SubResource( 3 )
+
+[node name="HUD" parent="." index="1" instance=ExtResource( 2 )]
 
 [node name="Sprite" type="Sprite" parent="." index="2"]
 
 position = Vector2( 1.10413, -45.7439 )
 scale = Vector2( 10, 10 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="Sprite2" type="Sprite" parent="." index="3"]
 
 position = Vector2( 392.462, 331.871 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
 [node name="Light2D" type="Light2D" parent="Sprite2" index="0"]
@@ -123,7 +124,7 @@ _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 position = Vector2( 13.5452, -2.39429 )
 enabled = true
 editor_only = false
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -146,6 +147,7 @@ _sections_unfolded = [ "Range", "Shadow" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2" index="1"]
 
+editor/display_folded = true
 position = Vector2( 3.35017, 0 )
 scale = Vector2( 1.10469, 1 )
 input_pickable = false
@@ -179,9 +181,5 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2/StaticBody2D" index="1"]
 
 shape = SubResource( 2 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="4"]
-
-environment = SubResource( 3 )
 
 

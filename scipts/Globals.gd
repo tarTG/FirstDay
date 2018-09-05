@@ -6,13 +6,19 @@ var friction = 0.9
 var pause = false
 
 var game_over = false
-var score = 0
-var level = 0
-var paused = false
+
 var current_scene = null
 var new_scene = null
 
+var player = null 
+
+var default_attribute_value = 5 
+var default_attribute_points = 10
+
 func _ready():
+	var player_inst = load("res://scenes/Player.tscn")
+	player = player_inst.instance()
+	player.set_name("player")
 	var root = get_tree().root
 	current_scene = root.get_child(root.get_child_count() -1)
 	
@@ -49,6 +55,4 @@ func goto_scene(path):
 	
 func new_game():
 	game_over = false
-	score = 0
-	level = 0
 	goto_scene("res://scenes/main.tscn")
