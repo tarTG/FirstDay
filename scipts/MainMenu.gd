@@ -19,6 +19,7 @@ func _on_NewGameButton_button_down():
 
 func _on_LoadButton_button_down():
 	$CenterContainer/LoadGameDialog.show()
+	$CenterContainer/LoadGameDialog.invalidate()
 
 
 func _on_OptionsButton_button_down():
@@ -27,4 +28,6 @@ func _on_OptionsButton_button_down():
 
 
 func _on_LoadGameDialog_confirmed():
-	pass # replace with function body
+#	Globals.addPlayer()
+	LoadSave.load_json($CenterContainer/LoadGameDialog.current_path)
+	

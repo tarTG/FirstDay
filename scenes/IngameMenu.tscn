@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scipts/IngameMenu.gd" type="Script" id=1]
 [ext_resource path="res://art/BasicTheme.tres" type="Theme" id=2]
+[ext_resource path="res://art/SmallTheme.tres" type="Theme" id=3]
 
 [node name="IngameMenu" type="CanvasLayer" index="0"]
 
@@ -33,68 +34,7 @@ size_flags_vertical = 1
 theme = ExtResource( 2 )
 _sections_unfolded = [ "Anchor", "Grow Direction", "Material", "Theme", "Visibility" ]
 
-[node name="LoadGameDialog" type="FileDialog" parent="Control" index="0"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 706.0
-margin_bottom = 222.0
-rect_min_size = Vector2( 200, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
-window_title = ""
-resizable = false
-dialog_hide_on_ok = true
-mode_overrides_title = true
-mode = 0
-access = 0
-filters = PoolStringArray( ".FDsave" )
-show_hidden_files = false
-current_dir = "res://"
-current_file = ""
-current_path = "res://"
-_sections_unfolded = [ "Dialog", "Material", "Visibility" ]
-
-[node name="SaveGameDialog" type="FileDialog" parent="Control" index="1"]
-
-visible = false
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 706.0
-margin_bottom = 222.0
-rect_min_size = Vector2( 200, 70 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-popup_exclusive = false
-window_title = ""
-resizable = false
-dialog_text = "Save Game"
-dialog_hide_on_ok = true
-mode_overrides_title = true
-mode = 4
-access = 0
-filters = PoolStringArray( ".FDsave" )
-show_hidden_files = false
-current_dir = "res://"
-current_file = ""
-current_path = "res://"
-_sections_unfolded = [ "Dialog", "Theme" ]
-
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Control" index="2"]
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Control" index="0"]
 
 visible = false
 anchor_left = 0.0
@@ -119,7 +59,7 @@ dialog_text = " Quit Game?"
 dialog_hide_on_ok = true
 _sections_unfolded = [ "Dialog", "Popup" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" index="3"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -256,6 +196,88 @@ text = "Exit"
 flat = false
 align = 1
 
+[node name="CenterContainer" type="CenterContainer" parent="." index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+_sections_unfolded = [ "Anchor", "Margin" ]
+
+[node name="SaveGameDialog" type="FileDialog" parent="CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 150.0
+margin_right = 712.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 400, 300 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "Save a File"
+resizable = true
+dialog_text = "Save Game"
+dialog_hide_on_ok = true
+mode_overrides_title = true
+mode = 4
+access = 0
+filters = PoolStringArray( "*.FDsave ; Saves" )
+show_hidden_files = false
+current_dir = "res://"
+current_file = ""
+current_path = "res://"
+_sections_unfolded = [ "Dialog", "Material", "Popup", "Rect", "Size Flags", "Theme", "Visibility" ]
+
+[node name="LoadGameDialog" type="FileDialog" parent="CenterContainer" index="1"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 312.0
+margin_top = 150.0
+margin_right = 712.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 400, 300 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 3 )
+popup_exclusive = true
+window_title = "Open a File"
+resizable = true
+dialog_hide_on_ok = true
+mode_overrides_title = true
+mode = 0
+access = 0
+filters = PoolStringArray( "*.FDsave ; Saves" )
+show_hidden_files = false
+current_dir = "res://"
+current_file = ""
+current_path = "res://"
+_sections_unfolded = [ "Dialog", "Material", "Popup", "Rect", "Theme", "Visibility", "custom_colors" ]
+
 [connection signal="confirmed" from="Control/ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
 
 [connection signal="button_down" from="Control/VBoxContainer/ResumeButten" to="." method="_on_ResumeButten_button_down"]
@@ -267,5 +289,9 @@ align = 1
 [connection signal="button_down" from="Control/VBoxContainer/OptionButton" to="." method="_on_OptionButton_button_down"]
 
 [connection signal="button_down" from="Control/VBoxContainer/ExitButton" to="." method="_on_ExitButton_button_down"]
+
+[connection signal="confirmed" from="CenterContainer/SaveGameDialog" to="." method="_on_SaveGameDialog_confirmed"]
+
+[connection signal="confirmed" from="CenterContainer/LoadGameDialog" to="." method="_on_LoadGameDialog_confirmed"]
 
 

@@ -11,13 +11,13 @@ config_version=3
 [application]
 
 config/name="FirstDay"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Globals="*res://scipts/Globals.gd"
-GameValues="*res://scipts/GameValues.gd"
+LoadSave="*res://scipts/LoadSave.gd"
 
 [display]
 
