@@ -12,6 +12,7 @@ var current_scene_path = ""
 var new_scene = null
 
 var player = null 
+var player_active = false
 
 var default_attribute_value = 5 
 var default_attribute_points = 10
@@ -29,15 +30,18 @@ func goto_scene(path):
 	current_scene_path = path
 	new_scene = s.instance()
 	current_scene.queue_free()
-	get_tree().root.remove_child(current_scene)
-	get_tree().root.add_child(new_scene)
+	get_tree().root.call_deferred("remove_child",current_scene)
+	get_tree().root.call_deferred("add_child",new_scene)
+	
 	current_scene = new_scene
 	
-	if new_scene.is_in_group("level") and not get_tree().root.has_node(player.get_path()):
+	if new_scene.is_in_group("level") and not player_active:
+		player_active = true
 		get_tree().root.add_child(player)
-
+	elif not new_scene.is_in_group("level"):
+		player_active = false
 		
-
+	current_scene.raise()
 	
 func new_game():
 	game_over = false

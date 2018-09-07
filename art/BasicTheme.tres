@@ -12,7 +12,6 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [resource]
 
-resource_local_to_scene = true
 default_font = SubResource( 1 )
-_sections_unfolded = [ "Resource" ]
+_sections_unfolded = [ "Font", "Resource", "Settings" ]
 

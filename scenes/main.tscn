@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scipts/main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=2]
-[ext_resource path="res://art/black.png" type="Texture" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
-[ext_resource path="res://art/Unbenannt 1.png" type="Texture" id=5]
+[ext_resource path="res://art/black.png" type="Texture" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://art/Unbenannt 1.png" type="Texture" id=4]
 
 [sub_resource type="Environment" id=1]
 
@@ -107,20 +106,18 @@ pause_mode = 2
 environment = SubResource( 1 )
 _sections_unfolded = [ "Pause" ]
 
-[node name="HUD" parent="." index="1" instance=ExtResource( 2 )]
-
-[node name="Sprite" type="Sprite" parent="." index="2"]
+[node name="Sprite" type="Sprite" parent="." index="1"]
 
 position = Vector2( 1.10413, -45.7439 )
 scale = Vector2( 10, 10 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="Sprite2" type="Sprite" parent="." index="3"]
+[node name="Sprite2" type="Sprite" parent="." index="2"]
 
 position = Vector2( 392.462, 331.871 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Z Index" ]
 
 [node name="Light2D" type="Light2D" parent="Sprite2" index="0"]
@@ -128,7 +125,7 @@ _sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Z Index" ]
 position = Vector2( 13.5452, -2.39429 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -151,7 +148,6 @@ _sections_unfolded = [ "Range", "Shadow" ]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite2" index="1"]
 
-editor/display_folded = true
 position = Vector2( 3.35017, 0 )
 scale = Vector2( 1.10469, 1 )
 input_pickable = false

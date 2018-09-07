@@ -1,0 +1,228 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://art/SmallTheme.tres" type="Theme" id=1]
+[ext_resource path="res://scipts/CharMenu.gd" type="Script" id=2]
+[ext_resource path="res://scenes/ComanderStats.tscn" type="PackedScene" id=3]
+
+[node name="CharMenu" type="MarginContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 100.0
+margin_right = -100.0
+margin_bottom = -100.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Anchor", "Material", "Mouse", "Size Flags", "Theme", "Visibility", "custom_constants" ]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="0"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 108.0
+margin_top = 100.0
+margin_right = 924.0
+margin_bottom = 500.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 7
+size_flags_vertical = 7
+color = Color( 0.390625, 0.167847, 0.167847, 1 )
+_sections_unfolded = [ "Anchor", "Grow Direction", "Margin", "Size Flags", "Theme" ]
+
+[node name="Container" type="VBoxContainer" parent="CanvasLayer" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 112.0
+margin_top = 100.0
+margin_right = 924.0
+margin_bottom = 502.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+alignment = 0
+_sections_unfolded = [ "Margin", "Size Flags", "Theme", "custom_constants" ]
+
+[node name="Titel_Container" type="CenterContainer" parent="CanvasLayer/Container" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 812.0
+margin_bottom = 56.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+use_top_left = false
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="Titel" type="Label" parent="CanvasLayer/Container/Titel_Container" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 357.0
+margin_top = 20.0
+margin_right = 454.0
+margin_bottom = 36.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 5.0
+text = "Ship and Commander"
+align = 1
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "Size Flags", "Theme" ]
+
+[node name="Stats_Container" type="HBoxContainer" parent="CanvasLayer/Container" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 60.0
+margin_right = 812.0
+margin_bottom = 316.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 5.0
+alignment = 0
+_sections_unfolded = [ "Size Flags", "Theme" ]
+
+[node name="ComanderStats" parent="CanvasLayer/Container/Stats_Container" index="0" instance=ExtResource( 3 )]
+
+margin_right = 404.0
+margin_bottom = 256.0
+size_flags_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Container/Stats_Container" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 408.0
+margin_right = 812.0
+margin_bottom = 256.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="ItemList" type="ItemList" parent="CanvasLayer/Container/Stats_Container/VBoxContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 404.0
+margin_bottom = 256.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/vseparation = 30
+custom_constants/hseparation = 30
+items = [  ]
+select_mode = 0
+allow_reselect = false
+icon_mode = 1
+fixed_icon_size = Vector2( 0, 0 )
+_sections_unfolded = [ "Cell", "Columns", "Icon", "Size Flags", "Theme", "custom_constants" ]
+
+[node name="Exit_Container" type="HBoxContainer" parent="CanvasLayer/Container" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 388.0
+margin_top = 362.0
+margin_right = 424.0
+margin_bottom = 384.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+alignment = 0
+_sections_unfolded = [ "Size Flags" ]
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/Container/Exit_Container" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 36.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Close"
+flat = false
+align = 1
+_sections_unfolded = [ "Size Flags" ]
+
+[connection signal="button_down" from="CanvasLayer/Container/Exit_Container/ExitButton" to="." method="_on_ExitButton_button_down"]
+
+

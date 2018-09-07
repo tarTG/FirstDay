@@ -7,13 +7,6 @@ var max_points = available_points +  7 * Globals.default_attribute_value
 
 func _ready():	
 	$MarginContainer/ComanderStats/VBoxContainer/PointRemain.text = String(available_points)
-	$MarginContainer/ComanderStats/Bold.add_to_group("stats")
-	$MarginContainer/ComanderStats/Through.add_to_group("stats")
-	$MarginContainer/ComanderStats/Impro.add_to_group("stats")
-	$MarginContainer/ComanderStats/Orga.add_to_group("stats")
-	$MarginContainer/ComanderStats/Sozi.add_to_group("stats")
-	$MarginContainer/ComanderStats/Respon.add_to_group("stats")
-	$MarginContainer/ComanderStats/Attention.add_to_group("stats")
 	var stat = get_tree().get_nodes_in_group("stats")
 	for i in stat:
 		i.connect("value_update",self, "Update_Stat")
@@ -55,8 +48,3 @@ func _on_StartButton_button_down():
 	com.attention = $MarginContainer/ComanderStats/Attention.current_val
 	com.commander_name = $MarginContainer/ComanderStats/NameContainer/TextEdit.text
 	Globals.goto_scene("res://scenes/main.tscn")
-#export var improvisation = 1 	# influences regeneration
-#export var organisation = 1 	# organisation influences storage size
-#export var sociality = 1 		# sociality influences crew size
-#export var responsiveness = 1 	# responsiveness influences ship agility
-#export var attention = 1 		# attetion influences the sensor accuacy

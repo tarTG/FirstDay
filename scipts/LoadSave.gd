@@ -8,6 +8,26 @@ func saveGame(path):
 
 
 
+func load_items(filepath):
+	var file = File.new()
+	if filepath == null:
+		return
+	if not file.file_exists(filepath):
+		return
+	file.open(filepath, File.READ)
+	var data = parse_json(file.get_as_text())
+	file.close()
+	return data
+
+func write_item(filepath, data):
+	var file = File.new()
+	if filepath == null:
+		return
+	file.open(filepath,File.WRITE)
+	file.store_line(to_json(data))
+	file.close()
+	
+
 func load_json(filepath):
 	var save_game = File.new()
 	if not save_game.file_exists(filepath):
@@ -26,11 +46,13 @@ func load_json(filepath):
 	# First load world and player
 	var player_data = current_line["player"]
 	var new_object = load("res://scenes/Player.tscn").instance()
-
-	Globals.player = new_object
-	get_node(player_data["parent"]).add_child(new_object)
-	Globals.goto_scene(player_data["level"])
 	
+	Globals.goto_scene(player_data["level"])
+	get_tree().root.remove_child(Globals.player)
+	Globals.player = new_object
+
+	get_node(player_data["parent"]).add_child(new_object)
+
 	
 	for i in player_data.keys():
 		Globals.player.set(i, player_data[i])

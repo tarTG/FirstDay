@@ -1,0 +1,29 @@
+{
+    "1": {
+        "name": "testItem 1",
+        "icon": "res://art/playerShip1_red.png",
+        "type": "consumable",
+        "weight": 0.1,
+        "stackable": true,
+        "description": "This is a consumable item",
+        "sell_price": 7
+    },
+    "2": {
+        "name": "testItem 2",
+        "icon": "res://art/Unbenannt 1.png",
+        "type": "equipment",
+        "weight": 10.1,
+        "stackable": false,
+        "description": "This is a equipment item",
+        "sell_price": 70
+    },
+    "3": {
+        "name": "testItem 3",
+        "icon": "res://art/starfield.png",
+        "type": "misc",
+        "weight": 5.1,
+        "stackable": false,
+        "description": "This is a misc item",
+        "sell_price": 700
+    },
+}
