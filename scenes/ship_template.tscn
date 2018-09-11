@@ -50,7 +50,7 @@ max_Crew = 1
 
 [node name="ship_spirte" type="Sprite" parent="." index="1"]
 
-editor/display_folded = true
+rotation = 1.57068
 scale = Vector2( 0.5, 0.5 )
 z_index = 1
 texture = ExtResource( 3 )
@@ -59,7 +59,7 @@ _sections_unfolded = [ "Animation", "Material", "Offset", "Region", "Transform",
 
 [node name="Position2D" type="Position2D" parent="ship_spirte" index="0"]
 
-position = Vector2( -0.397217, -40.5158 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Light2D" type="Light2D" parent="." index="2"]
 

@@ -7,12 +7,10 @@ var commander = null
 
 export var thrust_multiplier = 10
 
-var current_pos = Vector2()
-var current_rot = 0
-var vel = Vector2()
-var acc = Vector2()
+
 
 func _ready():
+
 	set_physics_process(true)
 	
 func set_commander(comm):
@@ -29,7 +27,7 @@ func _process(delta):
 	
 
 func thrust():
-	apply_impulse(Vector2(0,0),Vector2(ship_values.thrust,0).rotated(rotation - PI/2))
+	apply_impulse(Vector2(0,0),Vector2(ship_values.thrust,0).rotated(rotation))
 
 
 func rotate_left():
@@ -37,6 +35,9 @@ func rotate_left():
 	
 func rotate_right():
 	angular_velocity = ship_values.agillity
+
+func remove_dir():
+	angular_velocity = 0
 
 func recalc_values():
 	ship_values.max_Shield = ship_values.max_Shield # TODO calculation

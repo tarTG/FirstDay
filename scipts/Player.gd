@@ -20,10 +20,20 @@ func _process(delta):
 
 	$HUD.set_bar_values(ship.ship_values)
 	#get_node("Camera2D").position = ship.position - Vector2(0,get_viewport().size.y/4).rotated(ship.rotation)
-	if Input.is_action_pressed("player_left"):
-		ship.rotate_left()
-	if Input.is_action_pressed("player_right"):
-		ship.rotate_right()
+	
+	var mouse_vec = (get_viewport().get_mouse_position() -get_viewport().size/2).normalized()
+	var top_vec = ((Vector2(0,1) + get_viewport().size/2) -get_viewport().size/2).rotated(ship.rotation- PI/2).normalized()
+	var deg = top_vec.angle_to(mouse_vec)
+
+#
+	if (deg < -0.1 or deg > 0.1 ) :
+		if(deg < 0 ):	
+			ship.rotate_left()
+		else :
+			ship.rotate_right()
+	else:
+		ship.remove_dir()
+
 	if Input.is_action_pressed("player_thrust"):
 		ship.thrust()
 

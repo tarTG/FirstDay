@@ -1,4 +1,13 @@
 {
+    "0": {
+        "name": "default",
+        "icon": "res://art/black_small.png",
+        "type": "consumable",
+        "weight": 0.1,
+        "stackable": true,
+        "description": "This is a consumable item",
+        "sell_price": 7
+    },
     "1": {
         "name": "testItem 1",
         "icon": "res://art/playerShip1_red.png",
