@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scipts/ShipComponent.gd" type="Script" id=1]
+[ext_resource path="res://art/demo_component.png" type="Texture" id=2]
+[ext_resource path="res://art/lights/kone_light.png" type="Texture" id=3]
+
+[sub_resource type="OccluderPolygon2D" id=2]
+
+closed = true
+cull_mode = 2
+polygon = PoolVector2Array( -32, 32, 31.9081, 31.8713, 31.7876, -31.7718, -31.8519, -31.6343 )
+_sections_unfolded = [ "Resource" ]
+
+[node name="ShipComponent" type="Node2D"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Angular", "Collision", "Linear", "Transform", "Z Index" ]
+
+[node name="texture" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Offset", "Region", "Size Flags", "Transform" ]
+
+[node name="front_position" type="Position2D" parent="." index="1"]
+
+position = Vector2( 0, -22 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
+
+[node name="light" type="Light2D" parent="front_position" index="0"]
+
+scale = Vector2( 1, 20 )
+enabled = true
+editor_only = false
+texture = ExtResource( 3 )
+offset = Vector2( 0, -50 )
+texture_scale = 1.0
+color = Color( 0.746094, 0.169037, 0.169037, 1 )
+energy = 1.0
+mode = 2
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 3
+shadow_filter_smooth = 2.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Material", "Shadow", "Transform", "Visibility", "Z Index" ]
+
+[node name="occluder" type="LightOccluder2D" parent="." index="2"]
+
+position = Vector2( -0.0470672, -0.125673 )
+scale = Vector2( 0.783778, 0.687251 )
+occluder = SubResource( 2 )
+light_mask = 1
+_sections_unfolded = [ "Transform" ]
+
+

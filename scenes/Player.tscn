@@ -21,7 +21,9 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index"
 
 [node name="ship_template" parent="." index="2" instance=ExtResource( 4 )]
 
-[node name="Camera2D" type="Camera2D" parent="ship_template" index="5"]
+scale = Vector2( 1, 1 )
+
+[node name="Camera2D" type="Camera2D" parent="ship_template" index="2"]
 
 anchor_mode = 1
 rotating = false
@@ -48,10 +50,6 @@ editor_draw_drag_margin = false
 script = ExtResource( 5 )
 _sections_unfolded = [ "Editor", "Limit", "Offset", "Smoothing" ]
 
-[node name="black_background" type="CanvasModulate" parent="." index="3"]
-
-color = Color( 0, 0, 0, 1 )
-
-[node name="CharMenu" parent="." index="4" instance=ExtResource( 6 )]
+[node name="CharMenu" parent="." index="3" instance=ExtResource( 6 )]
 
 

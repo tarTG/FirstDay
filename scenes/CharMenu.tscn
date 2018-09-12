@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/ComanderStats.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/inventory_system.tscn" type="PackedScene" id=4]
 
-[node name="CharMenu" type="MarginContainer"]
+[node name="CharMenu" type="MarginContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -157,19 +157,12 @@ size_flags_vertical = 2
 alignment = 1
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="inventory_system" parent="CanvasLayer/Container/Stats_Container/VBoxContainer" index="0" instance=ExtResource( 4 )]
-
-margin_right = 0.0
-margin_bottom = 0.0
-
-[node name="ShipMenu" type="Control" parent="CanvasLayer/Container/Stats_Container/VBoxContainer" index="1"]
+[node name="ShipMenu" type="Control" parent="CanvasLayer/Container/Stats_Container/VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 4.0
-margin_bottom = 4.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -177,6 +170,12 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 _sections_unfolded = [ "Size Flags" ]
+
+[node name="inventory_system" parent="CanvasLayer/Container/Stats_Container/VBoxContainer" index="1" instance=ExtResource( 4 )]
+
+margin_top = 4.0
+margin_right = 0.0
+margin_bottom = 4.0
 
 [node name="Exit_Container" type="HBoxContainer" parent="CanvasLayer/Container" index="2"]
 

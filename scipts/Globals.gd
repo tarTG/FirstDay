@@ -38,6 +38,7 @@ func goto_scene(path):
 	if new_scene.is_in_group("level") and not player_active:
 		player_active = true
 		get_tree().root.add_child(player)
+		#player.raise()
 	elif not new_scene.is_in_group("level"):
 		player_active = false
 		
