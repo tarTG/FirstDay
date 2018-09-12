@@ -48,3 +48,4 @@ func _on_StartButton_button_down():
 	com.attention = $MarginContainer/ComanderStats/Attention.current_val
 	com.commander_name = $MarginContainer/ComanderStats/NameContainer/TextEdit.text
 	Globals.goto_scene("res://scenes/main.tscn")
+	Globals.player.get_node("CharMenu").inventory_gui.change_inventory_size(com.organisation * 2)

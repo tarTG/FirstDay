@@ -2,13 +2,13 @@ extends Node
 
 onready var ship = get_node("ship_template")
 onready var commander = get_node("player_commander")
-
+onready var inventory = $CharMenu.inventory_gui
 
 func _ready():
 	ship.set_commander(commander)
 	ship.recalc_values()
 	$HUD.set_bar_values(ship.ship_values)
-	
+	$CharMenu.hideMenu()
 	pass
 	
 func _process(delta):
@@ -44,6 +44,7 @@ func _input(event):
 	if event.is_action_pressed("char_menu"):
 		if $CharMenu.visible == false:
 			$CharMenu.showMenu()
+			$CharMenu.setAttributes()
 		else:
 			$CharMenu.hideMenu()
 
@@ -65,7 +66,15 @@ func save():
 		"comm_respond": commander.responsiveness,
 		"comm_att" : commander.attention,
 		"parent" : get_parent().get_path(),
+		"inventory":[]
 		}
+	for i in range (0,inventory.inventory_size):
+		save_dict["inventory"].append(
+			{  "slot" : inventory.item_list[i].slot_id,
+			 "item_id" : inventory.item_list[i].item_id,
+			"count" : inventory.item_list[i].count_num
+			})
+	
 	return save_dict
 
 func set(key, value):
@@ -90,11 +99,16 @@ func set(key, value):
 			commander.improvisation = value
 		"comm_orga" : 
 			commander.organisation = value
+		#	$CharMenu.inventory_gui.inventory_size = commander.organisation * 2
 		"comm_soci" : 
 			commander.sociality = value
 		"comm_respond": 
 			commander.responsiveness = value
 		"comm_att" :
 			 commander.attention = value
+		"inventory":
+			$CharMenu.inventory_gui.load(value)
+			
 		_:
 			print("Unknown load value " + key + " " + String(value))
+	

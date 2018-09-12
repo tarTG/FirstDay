@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scipts/item_slot.gd" type="Script" id=1]
 
-[node name="item_slot" type="Button" index="0"]
+[node name="item_slot" type="Button"]
 
 anchor_left = 0.0
 anchor_top = 0.0

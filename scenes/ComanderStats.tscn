@@ -233,7 +233,7 @@ anchor_bottom = 0.0
 margin_top = 308.0
 margin_right = 251.0
 margin_bottom = 356.0
-label_name = "Soziality"
+label_name = "Sociality"
 
 [node name="Respon" parent="." index="9" instance=ExtResource( 3 )]
 

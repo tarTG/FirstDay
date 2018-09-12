@@ -161,9 +161,6 @@ _sections_unfolded = [ "Rect", "Size Flags" ]
 
 margin_right = 0.0
 margin_bottom = 0.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-_sections_unfolded = [ "Size Flags" ]
 
 [node name="ShipMenu" type="Control" parent="CanvasLayer/Container/Stats_Container/VBoxContainer" index="1"]
 
