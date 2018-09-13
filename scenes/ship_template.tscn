@@ -10,7 +10,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="ship_template" type="RigidBody2D"]
+[node name="ship_template" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -47,7 +47,6 @@ _sections_unfolded = [ "Angular", "Audio Bus", "Collision", "Linear", "Transform
 
 [node name="FrontPos" type="Position2D" parent="Ship_components" index="1"]
 
-visible = false
 position = Vector2( 50, 0 )
 _sections_unfolded = [ "Transform" ]
 
@@ -64,11 +63,7 @@ max_Shield = 100
 max_Hull = 100
 max_Crew = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
-
-shape = SubResource( 1 )
-
-[node name="Light2D" type="Light2D" parent="." index="3"]
+[node name="Light2D" type="Light2D" parent="." index="2"]
 
 position = Vector2( 0.367264, 0.505836 )
 scale = Vector2( 0.239284, 0.122621 )
@@ -80,7 +75,7 @@ texture_scale = 1.0
 color = Color( 0.46875, 0.0860596, 0.0860596, 1 )
 energy = 0.4
 mode = 2
-range_height = 0.0
+range_height = 20.0
 range_z_min = -1024
 range_z_max = 1024
 range_layer_min = 0
@@ -93,5 +88,12 @@ shadow_gradient_length = 0.0
 shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
+_sections_unfolded = [ "Material", "Range", "Shadow", "Z Index" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( -0.223413, -0.0133023 )
+scale = Vector2( 1.68308, 1.92091 )
+shape = SubResource( 1 )
 
 

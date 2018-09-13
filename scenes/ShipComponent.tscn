@@ -1,10 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scipts/ShipComponent.gd" type="Script" id=1]
 [ext_resource path="res://art/demo_component.png" type="Texture" id=2]
-[ext_resource path="res://art/lights/kone_light.png" type="Texture" id=3]
+[ext_resource path="res://art/demo_component_normal.png" type="Texture" id=3]
+[ext_resource path="res://art/lights/kone_light.png" type="Texture" id=4]
 
-[sub_resource type="OccluderPolygon2D" id=2]
+[sub_resource type="OccluderPolygon2D" id=1]
 
 closed = true
 cull_mode = 2
@@ -19,7 +20,8 @@ _sections_unfolded = [ "Angular", "Collision", "Linear", "Transform", "Z Index" 
 [node name="texture" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Offset", "Region", "Size Flags", "Transform" ]
+normal_map = ExtResource( 3 )
+_sections_unfolded = [ "Material", "Offset", "Region", "Size Flags", "Transform" ]
 
 [node name="front_position" type="Position2D" parent="." index="1"]
 
@@ -31,7 +33,7 @@ _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 scale = Vector2( 1, 20 )
 enabled = true
 editor_only = false
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 offset = Vector2( 0, -50 )
 texture_scale = 1.0
 color = Color( 0.746094, 0.169037, 0.169037, 1 )
@@ -56,7 +58,7 @@ _sections_unfolded = [ "Material", "Shadow", "Transform", "Visibility", "Z Index
 
 position = Vector2( -0.0470672, -0.125673 )
 scale = Vector2( 0.783778, 0.687251 )
-occluder = SubResource( 2 )
+occluder = SubResource( 1 )
 light_mask = 1
 _sections_unfolded = [ "Transform" ]
 
