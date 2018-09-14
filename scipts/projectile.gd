@@ -1,22 +1,24 @@
 extends Area2D
 
-var direction
-var speed
+var vel = Vector2()
+
+signal projectileHit
 
 func _ready():
 	hide()
 	set_process(false)
 	pass
 
-func fire(dir, spd):
+func fire(pos, dir, speed ):
 	show()
 	$discharge_timer.start()
 	$duration_timer.start()
-	direction = dir
-	speed = spd
+	position = pos
+	vel = Vector2(speed, 0).rotated(dir)
 	set_process(true)
 	
 func _process(delta):
+	position += vel * delta
 	pass
 
 
@@ -35,9 +37,11 @@ func _on_discharge_timer_timeout():
 
 
 func _on_projectile_body_entered(body):
+	emit_signal("projectileHit")
+	queue_free()
 	pass # replace with function body
 
 
 func _on_duration_timer_timeout():
-	
+	queue_free()
 	pass # replace with function body

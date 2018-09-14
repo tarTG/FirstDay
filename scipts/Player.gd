@@ -3,6 +3,7 @@ extends Node
 onready var ship = get_node("ship_template")
 onready var commander = get_node("player_commander")
 onready var inventory = $CharMenu.inventory_gui
+onready var projectile = load("res://scenes/projectile.tscn")
 
 func _ready():
 	ship.set_commander(commander)
@@ -47,8 +48,13 @@ func _input(event):
 			$CharMenu.setAttributes()
 		else:
 			$CharMenu.hideMenu()
-
-
+	if event.is_action_pressed("shoot"):
+		var p = projectile.instance()
+		p.set_Color(Color(100,200,80))
+		$bullets.add_child(p)
+		p.fire($ship_template/Ship_components/CenterPos/ShipComponent/front_position.global_position,ship.global_rotation,500)
+		
+		
 func save():
 	var save_dict = {
         "level" : Globals.current_scene_path,

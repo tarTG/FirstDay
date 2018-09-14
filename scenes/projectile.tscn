@@ -11,7 +11,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[node name="projectile" type="Area2D"]
+[node name="projectile" type="Area2D" index="0"]
 
 position = Vector2( 0, 0.122086 )
 input_pickable = true
@@ -88,14 +88,14 @@ shape = SubResource( 1 )
 [node name="discharge_timer" type="Timer" parent="." index="4"]
 
 process_mode = 1
-wait_time = 0.2
+wait_time = 1.0
 one_shot = true
 autostart = false
 
 [node name="duration_timer" type="Timer" parent="." index="5"]
 
 process_mode = 1
-wait_time = 1.0
+wait_time = 20.0
 one_shot = false
 autostart = false
 

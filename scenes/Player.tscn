@@ -7,7 +7,7 @@
 [ext_resource path="res://scipts/Camera2D.gd" type="Script" id=5]
 [ext_resource path="res://scenes/CharMenu.tscn" type="PackedScene" id=6]
 
-[node name="Player" type="Node2D" groups=[
+[node name="Player" type="Node2D" index="0" groups=[
 "PlayerSave",
 ]]
 
@@ -20,8 +20,6 @@ _sections_unfolded = [ "Material", "Pause", "Transform", "Visibility", "Z Index"
 [node name="player_commander" parent="." index="1" instance=ExtResource( 3 )]
 
 [node name="ship_template" parent="." index="2" instance=ExtResource( 4 )]
-
-scale = Vector2( 1, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="ship_template" index="2"]
 
@@ -51,5 +49,7 @@ script = ExtResource( 5 )
 _sections_unfolded = [ "Editor", "Limit", "Offset", "Smoothing" ]
 
 [node name="CharMenu" parent="." index="3" instance=ExtResource( 6 )]
+
+[node name="bullets" type="Node2D" parent="." index="4"]
 
 

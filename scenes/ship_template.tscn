@@ -10,7 +10,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[node name="ship_template" type="RigidBody2D" index="0"]
+[node name="ship_template" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1
