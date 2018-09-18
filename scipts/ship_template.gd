@@ -23,7 +23,7 @@ func _physics_process(delta):
 func _process(delta):
 	ship_values.current_shield = min(ship_values.max_Shield, ship_values.current_shield + ship_values.shield_regen * delta)
 	ship_values.current_hull = min(ship_values.max_Hull, ship_values.current_hull + ship_values.hull_regen * delta)
-
+	
 	
 
 func thrust():
@@ -38,6 +38,10 @@ func rotate_right():
 
 func remove_dir():
 	angular_velocity = 0
+	
+func fire():
+	if $Ship_components/CenterPos/ShipComponent.component_stats.weapon_type != null:
+		$Ship_components/CenterPos/ShipComponent.fire()
 
 func recalc_values():
 	ship_values.max_Shield = ship_values.max_Shield # TODO calculation

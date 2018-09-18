@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scipts/projectile.gd" type="Script" id=1]
 [ext_resource path="res://art/weapons/laser_test.png" type="Texture" id=2]
 [ext_resource path="res://art/lights/ellipse_light.png" type="Texture" id=3]
-[ext_resource path="res://art/lights/discharge_light.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -13,7 +12,6 @@ height = 20.0
 
 [node name="projectile" type="Area2D" index="0"]
 
-position = Vector2( 0, 0.122086 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -22,24 +20,25 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
+_sections_unfolded = [ "Audio Bus", "Collision", "Transform", "Visibility" ]
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-self_modulate = Color( 0.722656, 0.203247, 0.203247, 1 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Visibility" ]
 
 [node name="travel_light" type="Light2D" parent="." index="1"]
 
+visible = false
 enabled = true
 editor_only = false
 texture = ExtResource( 3 )
 offset = Vector2( 0, 0 )
 texture_scale = 10.0
-color = Color( 0.972656, 0.0227966, 0.0227966, 1 )
+color = Color( 0.816406, 0.426142, 0.255127, 1 )
 energy = 1.0
 mode = 2
-range_height = 0.0
+range_height = 10.0
 range_z_min = -1024
 range_z_max = 1024
 range_layer_min = 0
@@ -54,55 +53,30 @@ shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Range", "Shadow" ]
 
-[node name="discharge_light" type="Light2D" parent="." index="2"]
-
-enabled = true
-editor_only = false
-texture = ExtResource( 4 )
-offset = Vector2( 0, 0 )
-texture_scale = 1.0
-color = Color( 1, 1, 1, 1 )
-energy = 1.0
-mode = 2
-range_height = 0.0
-range_z_min = -1024
-range_z_max = 1024
-range_layer_min = 0
-range_layer_max = 0
-range_item_cull_mask = 1
-shadow_enabled = true
-shadow_color = Color( 0, 0, 0, 0 )
-shadow_buffer_size = 2048
-shadow_gradient_length = 0.0
-shadow_filter = 0
-shadow_filter_smooth = 0.0
-shadow_item_cull_mask = 1
-_sections_unfolded = [ "Range", "Shadow" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
 position = Vector2( -0.477623, -0.224758 )
 scale = Vector2( 0.737202, 1.2589 )
 shape = SubResource( 1 )
 
+[node name="duration_timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = false
+autostart = false
+
 [node name="discharge_timer" type="Timer" parent="." index="4"]
 
 process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="duration_timer" type="Timer" parent="." index="5"]
-
-process_mode = 1
-wait_time = 20.0
+wait_time = 0.2
 one_shot = false
 autostart = false
 
 [connection signal="body_entered" from="." to="." method="_on_projectile_body_entered"]
 
-[connection signal="timeout" from="discharge_timer" to="." method="_on_discharge_timer_timeout"]
-
 [connection signal="timeout" from="duration_timer" to="." method="_on_duration_timer_timeout"]
+
+[connection signal="timeout" from="discharge_timer" to="." method="_on_discharge_timer_timeout"]
 
 

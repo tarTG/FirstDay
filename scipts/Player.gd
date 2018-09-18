@@ -3,13 +3,29 @@ extends Node
 onready var ship = get_node("ship_template")
 onready var commander = get_node("player_commander")
 onready var inventory = $CharMenu.inventory_gui
-onready var projectile = load("res://scenes/projectile.tscn")
+
 
 func _ready():
 	ship.set_commander(commander)
 	ship.recalc_values()
+	ship.add_to_group("Player")
 	$HUD.set_bar_values(ship.ship_values)
 	$CharMenu.hideMenu()
+	
+	$ship_template/Ship_components/CenterPos/ShipComponent.load_component(
+		{
+	"weapon_type" : "test",
+	"weapon_color" : Color(10,50,200),
+	"weapon_damage" : 10,
+	"weapon_reload_time" : 1,
+	"weapon_size" : Vector2(6,6),
+	"weapon_speed" : 1000,
+	"component_owner" : "Player",
+	"shield" : 0,
+	"armor" : 0,
+	"live_support" : 0,
+	"weight" : 300
+	})
 	pass
 	
 func _process(delta):
@@ -49,10 +65,9 @@ func _input(event):
 		else:
 			$CharMenu.hideMenu()
 	if event.is_action_pressed("shoot"):
-		var p = projectile.instance()
-		p.set_Color(Color(100,200,80))
-		$bullets.add_child(p)
-		p.fire($ship_template/Ship_components/CenterPos/ShipComponent/front_position.global_position,ship.global_rotation,500)
+		ship.fire()
+
+		
 		
 		
 func save():

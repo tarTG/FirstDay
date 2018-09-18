@@ -1,6 +1,7 @@
 extends Area2D
 
 var vel = Vector2()
+var projectile_owner = ""
 
 signal projectileHit
 
@@ -10,38 +11,37 @@ func _ready():
 	pass
 
 func fire(pos, dir, speed ):
-	show()
-	$discharge_timer.start()
 	$duration_timer.start()
-	position = pos
+	global_position = pos
+	global_rotation = dir + PI /2
 	vel = Vector2(speed, 0).rotated(dir)
+	show()
+	#avoid color artefacts
+	$discharge_timer.start()
 	set_process(true)
 	
 func _process(delta):
-	position += vel * delta
+	global_position += vel * delta
 	pass
 
 
 func set_Color(color):
-	self_modulate = color
 	$travel_light.color = color
-	$discharge_light.color = color
 
-
-	
-	
-
-func _on_discharge_timer_timeout():
-	$discharge_light.hide()
-	pass
 
 
 func _on_projectile_body_entered(body):
-	emit_signal("projectileHit")
-	queue_free()
+	if not body.is_in_group(projectile_owner):
+		emit_signal("projectileHit")
+		queue_free()
 	pass # replace with function body
 
 
 func _on_duration_timer_timeout():
 	queue_free()
+	pass # replace with function body
+
+
+func _on_discharge_timer_timeout():
+	$travel_light.show()
 	pass # replace with function body

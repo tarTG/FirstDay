@@ -33,7 +33,7 @@ fog_height_curve = 1.0
 tonemap_mode = 0
 tonemap_exposure = 1.0
 tonemap_white = 1.0
-auto_exposure_enabled = true
+auto_exposure_enabled = false
 auto_exposure_scale = 0.4
 auto_exposure_min_luma = 0.05
 auto_exposure_max_luma = 4.0
@@ -65,7 +65,7 @@ dof_blur_near_distance = 2.0
 dof_blur_near_transition = 1.0
 dof_blur_near_amount = 0.1
 dof_blur_near_quality = 1
-glow_enabled = true
+glow_enabled = false
 glow_levels/1 = false
 glow_levels/2 = false
 glow_levels/3 = true
@@ -84,7 +84,7 @@ adjustment_enabled = false
 adjustment_brightness = 1.0
 adjustment_contrast = 1.0
 adjustment_saturation = 1.0
-_sections_unfolded = [ "Adjustments", "Auto Exposure", "Background", "Glow" ]
+_sections_unfolded = [ "Adjustments", "Ambient Light", "Background", "DOF Far Blur", "DOF Near Blur", "Fog", "Glow", "SS Reflections", "SSAO", "Tonemap" ]
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -101,7 +101,7 @@ radius = 10.0
 custom_solver_bias = 0.0
 radius = 30.1688
 
-[node name="main" type="Node" index="0" groups=[
+[node name="main" type="Node" groups=[
 "level",
 ]]
 
@@ -124,6 +124,7 @@ scroll_base_scale = Vector2( 1, 1 )
 scroll_limit_begin = Vector2( 0, 0 )
 scroll_limit_end = Vector2( 0, 0 )
 scroll_ignore_camera_zoom = true
+_sections_unfolded = [ "Scroll" ]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
 
@@ -138,6 +139,7 @@ position = Vector2( 518.388, 284.229 )
 scale = Vector2( 4.16546, 2.6113 )
 texture = ExtResource( 2 )
 normal_map = ExtResource( 3 )
+_sections_unfolded = [ "Animation", "Offset", "Region" ]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
 

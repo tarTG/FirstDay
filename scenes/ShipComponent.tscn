@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scipts/ShipComponent.gd" type="Script" id=1]
 [ext_resource path="res://art/demo_component.png" type="Texture" id=2]
 [ext_resource path="res://art/demo_component_normal.png" type="Texture" id=3]
 [ext_resource path="res://art/lights/kone_light.png" type="Texture" id=4]
+[ext_resource path="res://art/lights/discharge_light.png" type="Texture" id=5]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 
@@ -28,13 +29,39 @@ _sections_unfolded = [ "Material", "Offset", "Region", "Size Flags", "Transform"
 position = Vector2( 0, -22 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
-[node name="light" type="Light2D" parent="front_position" index="0"]
+[node name="search_light" type="Light2D" parent="front_position" index="0"]
 
 scale = Vector2( 1, 20 )
 enabled = true
 editor_only = false
 texture = ExtResource( 4 )
 offset = Vector2( 0, -50 )
+texture_scale = 1.0
+color = Color( 0.746094, 0.169037, 0.169037, 1 )
+energy = 1.0
+mode = 2
+range_height = 0.0
+range_z_min = -1024
+range_z_max = 1024
+range_layer_min = 0
+range_layer_max = 0
+range_item_cull_mask = 1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_buffer_size = 2048
+shadow_gradient_length = 0.0
+shadow_filter = 3
+shadow_filter_smooth = 2.0
+shadow_item_cull_mask = 1
+_sections_unfolded = [ "Material", "Shadow", "Transform", "Visibility", "Z Index" ]
+
+[node name="discharge_light" type="Light2D" parent="front_position" index="1"]
+
+scale = Vector2( 4, 4 )
+enabled = true
+editor_only = false
+texture = ExtResource( 5 )
+offset = Vector2( 0, -53 )
 texture_scale = 1.0
 color = Color( 0.746094, 0.169037, 0.169037, 1 )
 energy = 1.0
@@ -61,5 +88,21 @@ scale = Vector2( 0.783778, 0.687251 )
 occluder = SubResource( 1 )
 light_mask = 1
 _sections_unfolded = [ "Transform" ]
+
+[node name="discharge_timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.2
+one_shot = true
+autostart = false
+
+[node name="reload_timer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="timeout" from="discharge_timer" to="." method="_on_discharge_timer_timeout"]
 
 

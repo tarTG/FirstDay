@@ -9,6 +9,7 @@
 
 [node name="Player" type="Node2D" index="0" groups=[
 "PlayerSave",
+"Player",
 ]]
 
 scale = Vector2( 0.1, 0.1 )
@@ -49,7 +50,5 @@ script = ExtResource( 5 )
 _sections_unfolded = [ "Editor", "Limit", "Offset", "Smoothing" ]
 
 [node name="CharMenu" parent="." index="3" instance=ExtResource( 6 )]
-
-[node name="bullets" type="Node2D" parent="." index="4"]
 
 
