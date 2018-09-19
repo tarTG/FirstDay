@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scipts/ShipComponent.gd" type="Script" id=1]
 [ext_resource path="res://art/demo_component.png" type="Texture" id=2]
@@ -6,15 +6,21 @@
 [ext_resource path="res://art/lights/kone_light.png" type="Texture" id=4]
 [ext_resource path="res://art/lights/discharge_light.png" type="Texture" id=5]
 
-[sub_resource type="OccluderPolygon2D" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 21.8996, 18.9283 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
 
 closed = true
 cull_mode = 2
 polygon = PoolVector2Array( -32, 32, 31.9081, 31.8713, 31.7876, -31.7718, -31.8519, -31.6343 )
 _sections_unfolded = [ "Resource" ]
 
-[node name="ShipComponent" type="Node2D"]
+[node name="ShipComponent" type="CollisionShape2D" index="0"]
 
+shape = SubResource( 1 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Angular", "Collision", "Linear", "Transform", "Z Index" ]
 
@@ -85,9 +91,9 @@ _sections_unfolded = [ "Material", "Shadow", "Transform", "Visibility", "Z Index
 
 position = Vector2( -0.0470672, -0.125673 )
 scale = Vector2( 0.783778, 0.687251 )
-occluder = SubResource( 1 )
+occluder = SubResource( 2 )
 light_mask = 1
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="discharge_timer" type="Timer" parent="." index="3"]
 

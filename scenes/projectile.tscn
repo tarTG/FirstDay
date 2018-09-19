@@ -10,7 +10,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[node name="projectile" type="Area2D" index="0"]
+[node name="projectile" type="Area2D"]
 
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
@@ -29,13 +29,12 @@ _sections_unfolded = [ "Visibility" ]
 
 [node name="travel_light" type="Light2D" parent="." index="1"]
 
-visible = false
 enabled = true
 editor_only = false
 texture = ExtResource( 3 )
 offset = Vector2( 0, 0 )
 texture_scale = 10.0
-color = Color( 0.816406, 0.426142, 0.255127, 1 )
+color = Color( 0.816406, 0.255127, 0.255127, 1 )
 energy = 1.0
 mode = 2
 range_height = 10.0

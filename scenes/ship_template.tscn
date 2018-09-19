@@ -1,16 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scipts/ship_template.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ShipComponent.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scipts/ship_values.gd" type="Script" id=3]
 [ext_resource path="res://art/light_test.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
-[node name="ship_template" type="RigidBody2D"]
+[node name="ship_template" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -34,36 +29,67 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Angular", "Applied Forces", "Collision", "Linear", "Transform", "Visibility", "Z Index" ]
 thrust_multiplier = 10
 
-[node name="Ship_components" type="Node2D" parent="." index="0"]
-
-[node name="CenterPos" type="Position2D" parent="Ship_components" index="0"]
+[node name="life_support" parent="." index="0" instance=ExtResource( 2 )]
 
 rotation = 1.5708
-_sections_unfolded = [ "Transform" ]
-
-[node name="ShipComponent" parent="Ship_components/CenterPos" index="0" instance=ExtResource( 2 )]
-
 _sections_unfolded = [ "Angular", "Audio Bus", "Collision", "Linear", "Transform", "Z Index" ]
 
-[node name="FrontPos" type="Position2D" parent="Ship_components" index="1"]
+[node name="top_front_component" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 50, 0 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="BackPos" type="Position2D" parent="Ship_components" index="2"]
-
-position = Vector2( -50, 0 )
+position = Vector2( 45, -45 )
 rotation = 1.5708
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Angular", "Audio Bus", "Collision", "Linear", "Transform", "Z Index" ]
 
-[node name="ship_values" type="Node" parent="." index="1"]
+[node name="top_back_component" parent="." index="2" instance=ExtResource( 2 )]
+
+position = Vector2( -45, -45 )
+rotation = 1.5708
+_sections_unfolded = [ "Angular", "Audio Bus", "Collision", "Linear", "Transform", "Z Index" ]
+
+[node name="bottom_back_component" parent="." index="3" instance=ExtResource( 2 )]
+
+position = Vector2( -45, 45 )
+rotation = 1.5708
+_sections_unfolded = [ "Angular", "Audio Bus", "Collision", "Linear", "Transform", "Z Index" ]
+
+[node name="bottom_front_component" parent="." index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 45, 45 )
+rotation = 1.5708
+_sections_unfolded = [ "Angular", "Audio Bus", "Collision", "Linear", "Transform", "Z Index" ]
+
+[node name="engine" parent="." index="5" instance=ExtResource( 2 )]
+
+position = Vector2( -45, 0 )
+rotation = 1.5708
+_sections_unfolded = [ "Angular", "Audio Bus", "Collision", "Linear", "Transform", "Z Index" ]
+
+[node name="top_component" parent="." index="6" instance=ExtResource( 2 )]
+
+position = Vector2( 0, -45 )
+rotation = 1.5708
+_sections_unfolded = [ "Angular", "Audio Bus", "Collision", "Linear", "Transform", "Z Index" ]
+
+[node name="bottom_component" parent="." index="7" instance=ExtResource( 2 )]
+
+position = Vector2( 0, 45 )
+rotation = 1.5708
+_sections_unfolded = [ "Angular", "Audio Bus", "Collision", "Linear", "Transform", "Z Index" ]
+
+[node name="commpand_center" parent="." index="8" instance=ExtResource( 2 )]
+
+position = Vector2( 45, 0 )
+rotation = 1.5708
+_sections_unfolded = [ "Angular", "Audio Bus", "Collision", "Linear", "Transform", "Z Index" ]
+
+[node name="ship_values" type="Node" parent="." index="9"]
 
 script = ExtResource( 3 )
 max_Shield = 100
 max_Hull = 100
 max_Crew = 1
 
-[node name="Light2D" type="Light2D" parent="." index="2"]
+[node name="Light2D" type="Light2D" parent="." index="10"]
 
 position = Vector2( 0.367264, 0.505836 )
 scale = Vector2( 0.239284, 0.122621 )
@@ -72,8 +98,8 @@ editor_only = false
 texture = ExtResource( 4 )
 offset = Vector2( 0, 0 )
 texture_scale = 1.0
-color = Color( 0.46875, 0.0860596, 0.0860596, 1 )
-energy = 0.4
+color = Color( 0.953125, 0.0707397, 0.0707397, 1 )
+energy = 0.6
 mode = 2
 range_height = 20.0
 range_z_min = -1024
@@ -89,11 +115,5 @@ shadow_filter = 0
 shadow_filter_smooth = 0.0
 shadow_item_cull_mask = 1
 _sections_unfolded = [ "Material", "Range", "Shadow", "Z Index" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
-
-position = Vector2( -0.223413, -0.0133023 )
-scale = Vector2( 1.68308, 1.92091 )
-shape = SubResource( 1 )
 
 

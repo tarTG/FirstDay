@@ -17,3 +17,15 @@ var mass = 0 				# current mass of the ship
 var thrust = 0 				# current thrust of the ship
 var agillity = 0 			# current agillity of the ship
 var sensor_thrength = 1 	# current sensor threngt of the ship
+
+
+func resetValues():
+	max_Shield = 0
+	max_Hull = 0
+	max_Crew = 0
+	shield_regen = 0
+	hull_regen = 0
+	mass = 0
+	thrust = 0
+	agillity = 0
+	sensor_thrength = 1

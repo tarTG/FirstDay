@@ -26,6 +26,7 @@ func _process(delta):
 
 
 func set_Color(color):
+	#$Sprite.self_modulate = color
 	$travel_light.color = color
 
 

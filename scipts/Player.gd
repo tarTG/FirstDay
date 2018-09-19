@@ -12,18 +12,20 @@ func _ready():
 	$HUD.set_bar_values(ship.ship_values)
 	$CharMenu.hideMenu()
 	
-	$ship_template/Ship_components/CenterPos/ShipComponent.load_component(
+	ship.components["life_support"].load_component(
 		{
+	"component_type" : "life",
 	"weapon_type" : "test",
-	"weapon_color" : Color(10,50,200),
+	"weapon_color" : Color(100,1,1),
 	"weapon_damage" : 10,
 	"weapon_reload_time" : 1,
 	"weapon_size" : Vector2(6,6),
-	"weapon_speed" : 1000,
+	"weapon_speed" : 100,
 	"component_owner" : "Player",
 	"shield" : 0,
-	"armor" : 0,
+	"hull" : 0,
 	"live_support" : 0,
+	"thrust" : 100,
 	"weight" : 300
 	})
 	pass
