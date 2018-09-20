@@ -54,6 +54,23 @@ func fire():
 	if components["life_support"].component_stats.weapon_type != null:
 		components["life_support"].fire()
 
+func addComponent(values):
+	components[values["component_type"]].load_component(values)
+	
+
+
+func load(values):
+	for i in components:
+		if values.has(i):
+			components[i].load_component(values[i])
+
+func save():
+	var ret = {}
+	for i in components:
+		if components[i].component_stats.disabled == false:
+			ret[i] = components[i].component_stats
+	return ret
+
 func recalc_values():
 	ship_values.resetValues()
 	
@@ -64,11 +81,14 @@ func recalc_values():
 		ship_values.mass += components[i].component_stats.weight
 		ship_values.thrust += components[i].component_stats.thrust
 		ship_values.agillity += components[i].component_stats.position_control
+		ship_values.sensor_thrength += components[i].component_stats.sensors
+		ship_values.shield_regen  += components[i].component_stats.shield_regen
+		ship_values.hull_regen += components[i].component_stats.hull_regen
 		
 	ship_values.mass += ship_values.current_crew * 0.07
 	mass = ship_values.mass
 	ship_values.thrust *= commander.boldness
 	ship_values.agillity += commander.responsiveness
-	ship_values.sensor_thrength = commander.attention
-	ship_values.shield_regen = commander.improvisation
-	ship_values.hull_regen = commander.improvisation
+	ship_values.sensor_thrength += commander.attention
+	ship_values.shield_regen += commander.improvisation
+	ship_values.hull_regen += commander.improvisation

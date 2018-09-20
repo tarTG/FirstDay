@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scipts/HUD.gd" type="Script" id=1]
+[ext_resource path="res://scenes/IngameMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/CharMenu.tscn" type="PackedScene" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -179,5 +181,11 @@ exp_edit = false
 rounded = false
 percent_visible = false
 _sections_unfolded = [ "Percent", "Visibility", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="IngameMenu" parent="." index="3" instance=ExtResource( 2 )]
+
+layer = 2
+
+[node name="CharMenu" parent="." index="4" instance=ExtResource( 3 )]
 
 

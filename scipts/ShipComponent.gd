@@ -5,23 +5,7 @@ onready var projectile = load("res://scenes/projectile.tscn")
 
 
 # Component Stats
-var component_stats = {
-	"component_type" : null,
-	"weapon_type" : null,
-	"weapon_color" : Color(0,0,0),
-	"weapon_damage" : 0,
-	"weapon_reload_time" : 0,
-	"weapon_size" : Vector2(1,1),
-	"weapon_speed" : 0,
-	"component_owner" : "default",
-	"shield" : 0,
-	"hull" : 0,
-	"live_support" : 0,
-	"thrust" : 0 ,
-	"position_control" : 0,
-	"sensor_thrength" : 0,
-	"weight" : 0
-	}
+var component_stats = ShipGeneration.default_component_stats
 
 func _ready():
 	$discharge_timer.stop()
@@ -59,7 +43,10 @@ func load_component(values):
 	component_stats = values
 	if component_stats.component_type != null:
 		$front_position/discharge_light.color = component_stats.weapon_color
+		$texture.texture = load(values["texture"])
+		$texture.normal_map = load(values["normal_texture"])
 		show()
 		disabled = false
 	
+
 	

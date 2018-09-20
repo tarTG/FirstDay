@@ -2,7 +2,7 @@ extends Node
 
 onready var ship = get_node("ship_template")
 onready var commander = get_node("player_commander")
-onready var inventory = $CharMenu.inventory_gui
+
 
 
 func _ready():
@@ -10,40 +10,18 @@ func _ready():
 	ship.recalc_values()
 	ship.add_to_group("Player")
 	$HUD.set_bar_values(ship.ship_values)
-	$CharMenu.hideMenu()
 	
-	ship.components["life_support"].load_component(
-		{
-	"component_type" : "life",
-	"weapon_type" : "test",
-	"weapon_color" : Color(100,1,1),
-	"weapon_damage" : 10,
-	"weapon_reload_time" : 1,
-	"weapon_size" : Vector2(6,6),
-	"weapon_speed" : 100,
-	"component_owner" : "Player",
-	"shield" : 0,
-	"hull" : 0,
-	"live_support" : 0,
-	"thrust" : 100,
-	"weight" : 300
-	})
 	pass
 	
 func _process(delta):
 	
 	########### Input Handling  ###############
-#	if Input.is_action_pressed("player_shoot"):
-#		if gun_timer.time_left == 0:
-#			shoot()
 
 	$HUD.set_bar_values(ship.ship_values)
-	#get_node("Camera2D").position = ship.position - Vector2(0,get_viewport().size.y/4).rotated(ship.rotation)
-	
+
 	var mouse_vec = (get_viewport().get_mouse_position() -get_viewport().size/2).normalized()
 	var top_vec = ((Vector2(0,1) + get_viewport().size/2) -get_viewport().size/2).rotated(ship.rotation- PI/2).normalized()
 	var deg = top_vec.angle_to(mouse_vec)
-
 #
 	if (deg < -0.1 or deg > 0.1 ) :
 		if(deg < 0 ):	
@@ -59,18 +37,9 @@ func _process(delta):
 
 
 func _input(event):
-
-	if event.is_action_pressed("char_menu"):
-		if $CharMenu.visible == false:
-			$CharMenu.showMenu()
-			$CharMenu.setAttributes()
-		else:
-			$CharMenu.hideMenu()
 	if event.is_action_pressed("shoot"):
 		ship.fire()
 
-		
-		
 		
 func save():
 	var save_dict = {
@@ -89,13 +58,14 @@ func save():
 		"comm_respond": commander.responsiveness,
 		"comm_att" : commander.attention,
 		"parent" : get_parent().get_path(),
-		"inventory":[]
+		"inventory":[],
+		"components": ship.save()
 		}
-	for i in range (0,inventory.inventory_size):
+	for i in range (0,$HUD.inventory.inventory_size):
 		save_dict["inventory"].append(
-			{  "slot" : inventory.item_list[i].slot_id,
-			 "item_id" : inventory.item_list[i].item_id,
-			"count" : inventory.item_list[i].count_num
+			{  "slot" : $Hud.inventory.item_list[i].slot_id,
+			 	"item_id" : $Hud.inventory.item_list[i].item_id,
+				"count" : $Hud.inventory.item_list[i].count_num
 			})
 	
 	return save_dict
@@ -122,7 +92,6 @@ func set(key, value):
 			commander.improvisation = value
 		"comm_orga" : 
 			commander.organisation = value
-		#	$CharMenu.inventory_gui.inventory_size = commander.organisation * 2
 		"comm_soci" : 
 			commander.sociality = value
 		"comm_respond": 
@@ -130,7 +99,9 @@ func set(key, value):
 		"comm_att" :
 			 commander.attention = value
 		"inventory":
-			$CharMenu.inventory_gui.load(value)
+			$HUD.inventory.load(value)
+		"components":
+			ship.load(value)
 			
 		_:
 			print("Unknown load value " + key + " " + String(value))

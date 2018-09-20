@@ -1,14 +1,16 @@
 extends CanvasLayer
 
 func _ready():
+	
 	pass
+	
 
-
+		
 func _on_ResumeButten_button_down():
 	Globals.pause = not Globals.pause
 	get_tree().paused = Globals.pause
 	$Control.hide()
-	queue_free()
+	$TextureRect.hide()
 	pass # replace with function body
 
 
@@ -46,6 +48,7 @@ func _on_LoadGameDialog_confirmed():#
 	Globals.pause = not Globals.pause
 	get_tree().paused = Globals.pause
 	$Control.hide()
+	$TextureRect.hide()
 	queue_free()
 	LoadSave.load_json($CenterContainer/LoadGameDialog.current_path)
 	

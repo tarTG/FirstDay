@@ -51,11 +51,11 @@ func add_item(item_id):
 		
 	for i in range(item_list.size()):
 		if item_list[i].item_id == item_id:
-			print("1")
+			
 			item_list[i].count_num += 1
 			return true
 		elif item_list[i].item_id == 0:
-			print("2")
+			
 			item_list[i].item_id = item_id
 			item_list[i].count_num += 1
 			return true

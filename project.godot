@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 Globals="*res://scipts/Globals.gd"
 LoadSave="*res://scipts/LoadSave.gd"
 GlobalDatabase="*res://scipts/GlobalDatabase.gd"
+ShipGeneration="*res://scipts/ShipGeneration.gd"
 
 [display]
 

@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scipts/Player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Commander.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/ship_template.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scipts/Camera2D.gd" type="Script" id=5]
-[ext_resource path="res://scenes/CharMenu.tscn" type="PackedScene" id=6]
 
 [node name="Player" type="Node2D" index="0" groups=[
 "PlayerSave",
@@ -48,7 +47,5 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 script = ExtResource( 5 )
 _sections_unfolded = [ "Editor", "Limit", "Offset", "Smoothing" ]
-
-[node name="CharMenu" parent="." index="3" instance=ExtResource( 6 )]
 
 

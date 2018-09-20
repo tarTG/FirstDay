@@ -18,7 +18,7 @@ cull_mode = 2
 polygon = PoolVector2Array( -32, 32, 31.9081, 31.8713, 31.7876, -31.7718, -31.8519, -31.6343 )
 _sections_unfolded = [ "Resource" ]
 
-[node name="ShipComponent" type="CollisionShape2D" index="0"]
+[node name="ShipComponent" type="CollisionShape2D"]
 
 shape = SubResource( 1 )
 script = ExtResource( 1 )

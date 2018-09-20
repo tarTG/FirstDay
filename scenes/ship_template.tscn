@@ -5,7 +5,7 @@
 [ext_resource path="res://scipts/ship_values.gd" type="Script" id=3]
 [ext_resource path="res://art/light_test.png" type="Texture" id=4]
 
-[node name="ship_template" type="RigidBody2D" index="0"]
+[node name="ship_template" type="RigidBody2D"]
 
 input_pickable = false
 collision_layer = 1

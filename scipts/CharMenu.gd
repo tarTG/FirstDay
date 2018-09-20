@@ -1,7 +1,7 @@
 extends MarginContainer
 
 onready var inventory_gui = $CanvasLayer/Container/Stats_Container/VBoxContainer/inventory_system
-onready var player = get_parent()
+onready var player = Globals.player
 
 
 
