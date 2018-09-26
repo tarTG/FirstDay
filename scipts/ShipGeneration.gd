@@ -1,5 +1,8 @@
 extends Node
 
+func _ready():
+	randomize()
+
 var default_component_stats = {
 	"component_type" : null,
 	"texture" : null,
@@ -50,7 +53,7 @@ func generateShip(component_type, level):
 	"component_owner" : "default",
 	"shield" : 0,
 	"hull" : 0,
-	"live_support" : 0,
+	"live_support" : randi()%11+1,
 	"thrust" : 0 ,
 	"position_control" : 0,
 	"sensors" : 0,
@@ -60,4 +63,5 @@ func generateShip(component_type, level):
 	"weight" : 0
 	}
 	return ret
+	
 	

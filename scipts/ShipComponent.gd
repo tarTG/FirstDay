@@ -16,6 +16,8 @@ func disable():
 	hide()
 	disabled = true
 
+func setLight(value):
+	$front_position/search_light.visible = value
 
 
 func fire():

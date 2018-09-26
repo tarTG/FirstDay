@@ -24,8 +24,9 @@ func _ready():
 		components[i].disable()
 	set_physics_process(true)
 	
-func set_commander(comm):
+func setCommander(comm):
 	commander = comm
+
 	
 	
 func _physics_process(delta):
@@ -50,6 +51,7 @@ func rotate_right():
 func remove_dir():
 	angular_velocity = 0
 	
+	
 func fire():
 	if components["life_support"].component_stats.weapon_type != null:
 		components["life_support"].fire()
@@ -57,7 +59,10 @@ func fire():
 func addComponent(values):
 	components[values["component_type"]].load_component(values)
 	
-
+func setLight(value):
+	for i in components:
+		components[i].setLight(value)
+	$Light2D.visible = value
 
 func load(values):
 	for i in components:
@@ -77,7 +82,7 @@ func recalc_values():
 	for i in components:
 		ship_values.max_Shield += components[i].component_stats.shield
 		ship_values.max_Hull += components[i].component_stats.hull
-		ship_values.max_Crew = components[i].component_stats.live_support + commander.sociality * 2
+		ship_values.max_Crew += components[i].component_stats.live_support + commander.sociality * 2
 		ship_values.mass += components[i].component_stats.weight
 		ship_values.thrust += components[i].component_stats.thrust
 		ship_values.agillity += components[i].component_stats.position_control
