@@ -3,21 +3,32 @@ extends Node
 onready var ship = get_node("ship_template")
 onready var commander = get_node("player_commander")
 
-
+onready var hud = $HUD
 
 func _ready():
-	ship.set_commander(commander)
+	ship.setCommander(commander)
 	ship.recalc_values()
 	ship.add_to_group("Player")
-	$HUD.set_bar_values(ship.ship_values)
+	hud.set_bar_values(ship.ship_values)
 	
 	pass
+	
+func setCommAndShip(_comm, _ship):
+	remove_child(commander)
+	add_child(_comm,true)
+	commander = get_node("Commander")
+	ship.load(_ship.save())
+	
+	ship.setCommander(commander)
+	ship.recalc_values()
+
+	hud.set_bar_values(ship.ship_values)
 	
 func _process(delta):
 	
 	########### Input Handling  ###############
 
-	$HUD.set_bar_values(ship.ship_values)
+	hud.set_bar_values(ship.ship_values)
 
 	var mouse_vec = (get_viewport().get_mouse_position() -get_viewport().size/2).normalized()
 	var top_vec = ((Vector2(0,1) + get_viewport().size/2) -get_viewport().size/2).rotated(ship.rotation- PI/2).normalized()
@@ -58,14 +69,14 @@ func save():
 		"comm_respond": commander.responsiveness,
 		"comm_att" : commander.attention,
 		"parent" : get_parent().get_path(),
-		"inventory":[],
-		"components": ship.save()
+		"components": ship.save(),
+		"inventory":[]		
 		}
 	for i in range (0,$HUD.inventory.inventory_size):
-		save_dict["inventory"].append(
-			{  "slot" : $Hud.inventory.item_list[i].slot_id,
-			 	"item_id" : $Hud.inventory.item_list[i].item_id,
-				"count" : $Hud.inventory.item_list[i].count_num
+		save_dict["inventory"].push_back(
+			{  "slot" : hud.inventory.item_list[i].slot_id,
+			 	"item_id" : hud.inventory.item_list[i].item_id,
+				"count" : hud.inventory.item_list[i].count_num
 			})
 	
 	return save_dict

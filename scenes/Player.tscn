@@ -7,8 +7,8 @@
 [ext_resource path="res://scipts/Camera2D.gd" type="Script" id=5]
 
 [node name="Player" type="Node2D" index="0" groups=[
-"PlayerSave",
 "Player",
+"PlayerSave",
 ]]
 
 scale = Vector2( 0.1, 0.1 )

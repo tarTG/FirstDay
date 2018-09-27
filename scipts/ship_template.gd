@@ -15,8 +15,6 @@ onready var components = { "life_support":$life_support,
 var commander = null
 
 
-export var thrust_multiplier = 10
-
 
 
 func _ready():
@@ -72,7 +70,7 @@ func load(values):
 func save():
 	var ret = {}
 	for i in components:
-		if components[i].component_stats.disabled == false:
+		if components[i].component_stats["component_type"] !=  null:
 			ret[i] = components[i].component_stats
 	return ret
 
@@ -80,9 +78,11 @@ func recalc_values():
 	ship_values.resetValues()
 	
 	for i in components:
+		if components[i].component_stats["component_type"] ==  null:
+			continue
 		ship_values.max_Shield += components[i].component_stats.shield
 		ship_values.max_Hull += components[i].component_stats.hull
-		ship_values.max_Crew += components[i].component_stats.live_support + commander.sociality * 2
+		ship_values.max_Crew += components[i].component_stats.live_support  
 		ship_values.mass += components[i].component_stats.weight
 		ship_values.thrust += components[i].component_stats.thrust
 		ship_values.agillity += components[i].component_stats.position_control
@@ -92,6 +92,7 @@ func recalc_values():
 		
 	ship_values.mass += ship_values.current_crew * 0.07
 	mass = ship_values.mass
+	ship_values.max_Crew += commander.sociality * 2
 	ship_values.thrust *= commander.boldness
 	ship_values.agillity += commander.responsiveness
 	ship_values.sensor_thrength += commander.attention

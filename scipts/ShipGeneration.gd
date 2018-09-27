@@ -44,7 +44,7 @@ func generateShip(component_type, level):
 		"component_type" : component_type,
 	"texture" : "res://art/demo_component.png",
 	"normal_texture" : "res://art/demo_component_normal.png",
-	"weapon_type" : "laser",
+	"weapon_type" : null,
 	"weapon_color" : Color(0,0,0),
 	"weapon_damage" : 0,
 	"weapon_reload_time" : 0,
@@ -54,14 +54,15 @@ func generateShip(component_type, level):
 	"shield" : 0,
 	"hull" : 0,
 	"live_support" : randi()%11+1,
-	"thrust" : 0 ,
+	"thrust" : 5 ,
 	"position_control" : 0,
 	"sensors" : 0,
 	"shield_regen" : 0,
 	"hull_regen" : 0,
 	"sensor_thrength" : 0,
-	"weight" : 0
+	"weight" : 10
 	}
+	print(String(ret["live_support"]))
 	return ret
 	
 	
