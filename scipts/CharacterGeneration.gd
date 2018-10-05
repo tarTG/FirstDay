@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 onready var ShipSelection = $MarginContainer2/VBoxContainer2/HBoxContainer
-
+onready var ShipStats = $MarginContainer2/VBoxContainer2/ShipStatsGui
 var available_points = Globals.default_attribute_points 
 var max_points = available_points +  7 * Globals.default_attribute_value
 var selectedShip = 0
@@ -32,13 +32,15 @@ func _ready():
 		start_ships[i].recalc_values()
 		print(String((start_ships[i].ship_values.max_Crew)))
 	
+	ShipStats.generate(start_ships[selectedShip].ship_values.getAsDictionary())
+	
 func Update_Stat():
 	calc_points()
 	var stat = get_tree().get_nodes_in_group("stats")
 	for i in stat:
 		commander.setValue(i.label_name,i.current_val)
 	start_ships[selectedShip].recalc_values()
-	$MarginContainer2/VBoxContainer2/RichTextLabel.text = String(start_ships[selectedShip].ship_values.max_Crew)
+	ShipStats.updateStats(start_ships[selectedShip].ship_values.getAsDictionary())
 	
 func calc_points():
 	var points = 0
@@ -65,17 +67,8 @@ func calc_points():
 
 
 func _on_StartButton_button_down():
-	#Globals.player.player_commander = commander
-#	Globals.player.ship = start_ships[selectedShip]
-#	com.boldness = $MarginContainer/ComanderStats/Bold.current_val
-#	com.thoroughness = $MarginContainer/ComanderStats/Through.current_val
-#	com.improvisation = $MarginContainer/ComanderStats/Impro.current_val
-#	com.organisation = $MarginContainer/ComanderStats/Orga.current_val
-#	com.sociality = $MarginContainer/ComanderStats/Sozi.current_val
-#	com.responsiveness = $MarginContainer/ComanderStats/Respon.current_val
-#	com.attention = $MarginContainer/ComanderStats/Attention.current_val
-#	com.commander_name = $MarginContainer/ComanderStats/NameContainer/TextEdit.text
-	
+
+	commander.commander_name = $MarginContainer/ComanderStats/NameContainer/TextEdit.text
 	Globals.goto_scene("res://scenes/main.tscn")
 	Globals.player.setCommAndShip(commander, start_ships[selectedShip])
 	Globals.player.get_node("HUD").inventory.change_inventory_size(commander.organisation * 2)

@@ -1,28 +1,31 @@
 extends Node
 
 onready var ship = get_node("ship_template")
-onready var commander = get_node("player_commander")
+var commander# = get_node("player_commander")
 
 onready var hud = $HUD
 
 func _ready():
-	ship.setCommander(commander)
-	ship.recalc_values()
+#	ship.setCommander(commander)
+#	ship.recalc_values()
 	ship.add_to_group("Player")
-	hud.set_bar_values(ship.ship_values)
-	
+#	hud.set_bar_values(ship.ship_values)
+	$HUD/CharMenu.init()
 	pass
 	
 func setCommAndShip(_comm, _ship):
-	remove_child(commander)
-	add_child(_comm,true)
+#	remove_child(commander)
+	add_child(_comm)
 	commander = get_node("Commander")
 	ship.load(_ship.save())
 	
 	ship.setCommander(commander)
+	$HUD/CharMenu.setAttributes()
 	ship.recalc_values()
 
 	hud.set_bar_values(ship.ship_values)
+	$HUD/CharMenu.setName(commander.commander_name)
+	
 	
 func _process(delta):
 	
@@ -81,39 +84,51 @@ func save():
 	
 	return save_dict
 
-func set(key, value):
-	match key:
-		"pos_x" : 
-			ship.position.x = value
-		"pos_y" : 
-			ship.position.y = value
-		"current_shield" : 
-			ship.ship_values.current_shield = value
-		"current_hull" : 
-			ship.ship_values.current_hull = value
-		"current_crew" : 
-			ship.ship_values.current_crew= value
-		"comm_name" : 
-			commander.commander_name = value
-		"comm_bold" :  
-			commander.boldness = value
-		"comm_thorou": 
-			commander.thoroughness = value
-		"comm_impro" : 
-			commander.improvisation = value
-		"comm_orga" : 
-			commander.organisation = value
-		"comm_soci" : 
-			commander.sociality = value
-		"comm_respond": 
-			commander.responsiveness = value
-		"comm_att" :
-			 commander.attention = value
-		"inventory":
-			$HUD.inventory.load(value)
-		"components":
-			ship.load(value)
-			
-		_:
-			print("Unknown load value " + key + " " + String(value))
+func set(dict):
+
+	add_child(load("res://scenes/Commander.tscn").instance())
+	commander = get_node("Commander")
+	ship.setCommander(commander)
+	hud.set_bar_values(ship.ship_values)
+	$HUD/CharMenu.setName(commander.commander_name)
+	for i in dict.keys():
+		var value = dict[i]
+		match i:
+			"pos_x" : 
+				ship.position.x = value
+			"pos_y" : 
+				ship.position.y = value
+			"current_shield" : 
+				ship.ship_values.current_shield = value
+			"current_hull" : 
+				ship.ship_values.current_hull = value
+			"current_crew" : 
+				ship.ship_values.current_crew= value
+			"comm_name" : 
+				commander.commander_name = value
+			"comm_bold" :  
+				commander.boldness = value
+			"comm_thorou": 
+				commander.thoroughness = value
+			"comm_impro" : 
+				commander.improvisation = value
+			"comm_orga" : 
+				commander.organisation = value
+			"comm_soci" : 
+				commander.sociality = value
+			"comm_respond": 
+				commander.responsiveness = value
+			"comm_att" :
+				 commander.attention = value
+			"inventory":
+				$HUD.inventory.load(value)
+			"components":
+				ship.load(value)
+				
+			_:
+				print("Unknown load value " + i + " " + String(value))
+	$HUD/CharMenu.setAttributes()
+	ship.recalc_values()		
+	$HUD/CharMenu.Update_Stat()
+	$HUD/CharMenu.setName(commander.commander_name)
 	

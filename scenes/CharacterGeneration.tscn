@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://art/BasicTheme.tres" type="Theme" id=1]
 [ext_resource path="res://scipts/CharacterGeneration.gd" type="Script" id=2]
 [ext_resource path="res://art/black.png" type="Texture" id=3]
 [ext_resource path="res://scenes/ComanderStats.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/ShipStatsGui.tscn" type="PackedScene" id=5]
 
 [node name="CharacterGeneration" type="HBoxContainer"]
 
@@ -126,7 +127,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 470.0
-margin_bottom = 72.0
+margin_bottom = 56.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -146,9 +147,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 76.0
+margin_top = 60.0
 margin_right = 470.0
-margin_bottom = 292.0
+margin_bottom = 228.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -166,7 +167,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 154.0
-margin_bottom = 216.0
+margin_bottom = 168.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -194,7 +195,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 158.0
 margin_right = 312.0
-margin_bottom = 216.0
+margin_bottom = 168.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -214,6 +215,7 @@ _sections_unfolded = [ "Grow Direction", "Material", "Size Flags", "Visibility",
 [node name="Position2D" type="Position2D" parent="MarginContainer2/VBoxContainer2/HBoxContainer/Button2" index="0"]
 
 position = Vector2( 76.8744, 104.007 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Button3" type="Button" parent="MarginContainer2/VBoxContainer2/HBoxContainer" index="2"]
 
@@ -223,7 +225,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 316.0
 margin_right = 470.0
-margin_bottom = 216.0
+margin_bottom = 168.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -244,34 +246,14 @@ _sections_unfolded = [ "Grow Direction", "Material", "Size Flags", "Visibility",
 
 position = Vector2( 76.8744, 104.007 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer2/VBoxContainer2" index="2"]
+[node name="ShipStatsGui" parent="MarginContainer2/VBoxContainer2" index="2" instance=ExtResource( 5 )]
 
-anchor_left = 0.0
-anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 296.0
+margin_top = 232.0
 margin_right = 470.0
 margin_bottom = 512.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = ""
-scroll_active = true
-scroll_following = false
-selection_enabled = false
-override_selected_font_color = false
-_sections_unfolded = [ "Size Flags" ]
+size_flags_stretch_ratio = 5.0
 
 [node name="StartButton" type="Button" parent="MarginContainer2/VBoxContainer2" index="3"]
 

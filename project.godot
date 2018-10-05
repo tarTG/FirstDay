@@ -58,5 +58,5 @@ shoot=[ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_n
 
 [rendering]
 
-environment/default_clear_color=Color( 1, 1, 1, 1 )
+environment/default_clear_color=Color( 1, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

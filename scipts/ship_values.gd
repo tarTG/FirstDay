@@ -29,3 +29,19 @@ func resetValues():
 	thrust = 0
 	agillity = 0
 	sensor_thrength = 1
+	
+func getAsDictionary():
+	var ret = {
+		 "Shield" : max_Shield,
+		 "Hull" : max_Hull, 
+		 "Crew" :max_Crew, 
+		# "current_shield" : current_shield,
+	#	 "current_hull" : current_hull,
+	#	 "current_crew" : current_crew,
+		 "Shield regen" : shield_regen,
+		 "Hull regen" : hull_regen,		
+		 "Mass" : mass,
+		 "Thrust" : thrust,
+		 "Agillity" : agillity,
+		 "Sensor thrength" : sensor_thrength}
+	return ret

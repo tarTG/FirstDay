@@ -90,6 +90,7 @@ max_Crew = 1
 
 [node name="Light2D" type="Light2D" parent="." index="10"]
 
+visible = false
 position = Vector2( 0.367264, 0.505836 )
 scale = Vector2( 0.239284, 0.122621 )
 enabled = true

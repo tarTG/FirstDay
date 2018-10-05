@@ -20,20 +20,21 @@ func change_inventory_size(size):
 	if(inventory_size == size): # nothing to do here
 		return
 	if(inventory_size < size): # just extend size with empty slots
-		for i in range(inventory_size, size):
-			item_list.append(slot.instance())
+		item_list.resize(size +1)
+		for i in range(inventory_size, size+1):
+			item_list[i] =slot.instance()
 			item_list[i].slot_id = i
 			item_list[i].item_id = 0
 			$ScrollContainer/GridContainer.add_child(item_list[i])
 		inventory_size = size
 	else: # throw away unused items
 		var throw_items = []
-		for i in range(size-1, inventory_size-1):
+		for i in range(size, inventory_size):
 			if item_list[i].item_id != 0:
 				throw_items.append(item_list[i].item_id)
 			
 			$ScrollContainer/GridContainer.remove_child(item_list[i])
-			item_list.remove(item_list[i].slot_id)
+			item_list.remove(item_list[i].slot_id -1)
 		inventory_size = size
 		return throw_items
 

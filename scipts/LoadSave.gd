@@ -53,11 +53,11 @@ func load_json(filepath):
 
 	get_node(player_data["parent"]).add_child(new_object)
 
+	Globals.player.set(player_data)
+#	for i in player_data.keys():
+#		Globals.player.set(i, player_data[i])
 	
-	for i in player_data.keys():
-		Globals.player.set(i, player_data[i])
-	
-	Globals.player.ship.recalc_values()
+#	Globals.player.ship.recalc_values()
 	save_game.close()
 	pass
 
