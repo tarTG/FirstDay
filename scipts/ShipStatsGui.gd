@@ -1,7 +1,7 @@
 extends HBoxContainer
 
 var currentKeys = []
-var entriesPerBar = 10
+var entriesPerBar = 4
 
 func _ready():
 	pass

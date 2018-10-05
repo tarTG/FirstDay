@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/ship_template.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scipts/Camera2D.gd" type="Script" id=4]
 
-[node name="Player" type="Node2D" index="0" groups=[
+[node name="Player" type="Node2D" groups=[
 "PlayerSave",
 "Player",
 ]]

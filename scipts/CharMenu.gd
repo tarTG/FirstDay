@@ -2,7 +2,7 @@ extends MarginContainer
 
 onready var inventory_gui = $CanvasLayer/Container/Stats_Container/VBoxContainer/inventory_system
 onready var player = Globals.player
-onready var ShipStats = $CanvasLayer/Container/Stats_Container/ShipStatsGui
+onready var ShipStats = $CanvasLayer/Container/ShipStatsGui
 
 
 func _ready():
