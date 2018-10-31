@@ -24,7 +24,7 @@ func _process(delta):
 	refresh()
 		
 func refresh():
-	icon = load(GlobalDatabase.get_item_image(item_id))
+	
 	if count_num == 0:
 		item_id = 0
 	if count_num > 1:
@@ -41,6 +41,7 @@ func refresh():
 				timer.start()
 	### refresh detail
 	$detail/values/name.text = "test"
+	icon = load(GlobalDatabase.get_item_image(item_id))
 #	get_node("detail/v/name").set_text(str(item_data.get_item_name(item_id)))
 #	get_node("detail/v/hp").set_text("HP : "+str(item_data.get_item_hp(item_id)))
 #	get_node("detail/v/mp").set_text("MP : "+str(item_data.get_item_mp(item_id)))
@@ -104,6 +105,9 @@ func _gui_input(event):
 		var m = get_global_mouse_position()
 		
 		detail.rect_position = Vector2(m.x+10, m.y+10)
+	
+	
+	
 		
 
 

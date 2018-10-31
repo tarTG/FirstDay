@@ -1,7 +1,7 @@
 {
     "0": {
         "name": "default",
-        "icon": "res://art/black_small.png",
+        "texture": "res://art/black_small.png",
         "type": "consumable",
         "weight": 0.1,
         "stackable": true,
@@ -10,7 +10,7 @@
     },
     "1": {
         "name": "testItem 1",
-        "icon": "res://art/playerShip1_red.png",
+        "texture": "res://art/playerShip1_red.png",
         "type": "consumable",
         "weight": 0.1,
         "stackable": true,
@@ -19,7 +19,7 @@
     },
     "2": {
         "name": "testItem 2",
-        "icon": "res://art/Unbenannt 1.png",
+        "texture": "res://art/Unbenannt 1.png",
         "type": "equipment",
         "weight": 10.1,
         "stackable": false,
@@ -28,7 +28,7 @@
     },
     "3": {
         "name": "testItem 3",
-        "icon": "res://art/starfield.png",
+        "texture": "res://art/starfield.png",
         "type": "misc",
         "weight": 5.1,
         "stackable": false,

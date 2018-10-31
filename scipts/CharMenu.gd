@@ -14,10 +14,14 @@ func _ready():
 #	inventory_gui.inventory_size = player.commander.organisation * 2
 	inventory_gui.inventory_columns = 5
 	inventory_gui.init()
+	for i in $CanvasLayer/Container/Stats_Container/CenterContainer/ShipEquipmentGUI.get_children():
+		i.invent_sys = inventory_gui
 	
 
 func init():
 	ShipStats.generate(player.ship.ship_values.getAsDictionary())
+#	$CanvasLayer/Container/Stats_Container/CenterContainer/ShipEquipmentGUI.init()
+	
 func _process(delta):
 
 	pass

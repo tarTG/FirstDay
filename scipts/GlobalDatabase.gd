@@ -19,5 +19,8 @@ func get_item_image(id):
 	if !itemData.has(String(id)):
 		print("Item does not exist.")
 		return 
-	itemData[String(id)]["id"] = int(id)
-	return itemData[String(id)]["icon"]
+#	itemData[String(id)]["id"] = int(id)
+	return itemData[String(id)]["texture"]
+
+func add_item(id, item):
+	itemData[String(id)] = item

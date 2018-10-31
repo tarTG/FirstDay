@@ -4,6 +4,7 @@ func _ready():
 	randomize()
 
 var default_component_stats = {
+	"id" : 0,
 	"component_type" : null,
 	"texture" : null,
 	"normal_texture" : null,
@@ -41,6 +42,7 @@ var component_types = { "life_support":"life_support",
 
 func generateShip(component_type, level):
 	var ret = {
+		"id" : randi(),
 		"component_type" : component_type,
 	"texture" : "res://art/demo_component.png",
 	"normal_texture" : "res://art/demo_component_normal.png",
@@ -62,7 +64,8 @@ func generateShip(component_type, level):
 	"sensor_thrength" : 0,
 	"weight" : 10
 	}
-	print(String(ret["live_support"]))
+
+	GlobalDatabase.add_item(ret["id"], ret )
 	return ret
 	
 	
